@@ -4,17 +4,17 @@
 <h1>Hai inserito:</h1>
 	<div>
     	<p>
-    	<t th:text="'Nome: '" />  <b th:text="${opera.nome}" />
+    	<span th:text="#{label.nome}">Nome: </span>  <b><span th:text="${opera.nome}" ></span></b>
     	</p>
     </div>
 	<div>
 	    <p>
-    	<t th:text="'Descrizione: '" />  <b th:text="${opera.descrizione}" />
+    	<span th:text="#{label.descrizione}">Descrizione: </span>  <b><span th:text="${opera.descrizione}" ></span></b>
    		</p> 
     </div>
 	<div>
 		<p>
-    	<t th:text="'Anno: '" />  <b th:text="${opera.anno}" />	
+    	<span th:text="#{label.anno}">Anno: </span>  <b><span th:text="${opera.anno}" ></span></b>	
 		</p>    
     </div>
 
