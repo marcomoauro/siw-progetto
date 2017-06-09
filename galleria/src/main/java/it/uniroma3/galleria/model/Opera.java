@@ -11,31 +11,29 @@ import javax.validation.constraints.Size;
 @Entity
 public class Opera {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-    @NotNull
-    @Size(min=1)
-    private String nome;
+	@NotNull
+	@Size(min=1)
+	private String nome;
 
-    @NotNull
-    @Size(min=1)
-    private String descrizione;
+	@NotNull
+	@Size(min=1)
+	private String descrizione;
 
-    @NotNull
-    @Min(1)
-    private Integer anno;
+	@NotNull
+	@Min(1)
+	private Integer anno;
 
-    protected Opera() {}
-	
+	protected Opera() {}
+
 	public Opera(String nome, String descrizione, Integer anno) {
 		this.nome = nome;
 		this.descrizione = descrizione;
 		this.anno = anno;
 	}
-	
-	
 
 	public Long getId() {
 		return id;
@@ -70,10 +68,9 @@ public class Opera {
 	}
 
 	@Override
-    public String toString() {
-        return String.format(
-                "Opera[id=%d, nome='%s', descrizione='%s', anno=%d]",
-                id, nome, descrizione, anno);
-    }
-
+	public String toString() {
+		return String.format(
+				"Opera[id=%d, nome='%s', descrizione='%s', anno=%d]",
+				id, nome, descrizione, anno);
+	}
 }

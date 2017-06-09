@@ -1,14 +1,21 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
 <body>
+<h1>Hai inserito:</h1>
 	<div>
-    	<p th:text="'Nome: ' + ${opera.nome}" />
+    	<p>
+    	<t th:text="'Nome: '" />  <b th:text="${opera.nome}" />
+    	</p>
     </div>
 	<div>
-    	<p th:text="'Descrizione: ' + ${opera.descrizione}" />
+	    <p>
+    	<t th:text="'Descrizione: '" />  <b th:text="${opera.descrizione}" />
+   		</p> 
     </div>
 	<div>
-    	<p th:text="'Anno: ' + ${opera.anno}" />	
+		<p>
+    	<t th:text="'Anno: '" />  <b th:text="${opera.anno}" />	
+		</p>    
     </div>
 
 </body>
