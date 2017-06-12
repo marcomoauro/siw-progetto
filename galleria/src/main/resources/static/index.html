@@ -12,8 +12,7 @@
 <title>Galleria d'Arte</title>
 
 <!-- Bootstrap Core CSSz -->
-<link href="vendor/bootstrap/css/bootstrap.min.css"
-	rel="stylesheet">
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
 <link href="vendor/font-awesome/css/font-awesome.min.css"
@@ -27,19 +26,19 @@
 <link href="css/freelancer.min.css" rel="stylesheet">
 <link href="css/login.css" rel="stylesheet">
 
-    <!-- Temporary navbar container fix -->
-    <style>
-    .navbar-toggler {
-        z-index: 1;
-    }
-    
-    @media (max-width: 576px) {
-        nav > .container {
-            width: 100%;
-        }
-    }
-    </style>
-    
+<!-- Temporary navbar container fix -->
+<style>
+.navbar-toggler {
+	z-index: 1;
+}
+
+@media ( max-width : 576px) {
+	nav>.container {
+		width: 100%;
+	}
+}
+</style>
+
 </head>
 
 <body id="page-top" class="index">
@@ -69,10 +68,39 @@
 					<li class="page-scroll"><a href="#portfolio">opere</a></li>
 					<li class="page-scroll"><a href="#about">info</a></li>
 					<li class="page-scroll"><a href="#contact">chi siamo</a></li>
-					<li class="page-scroll"><a href="/opera">Inserisci</a></li>
-					<li class="page-scroll"><a href="#login">Accedi</a></li>
-					
-				</ul>
+					<li class="page-scroll"><a href="/signIn">Registrati</a></li>
+					<li class="dropdown">
+					<a href="http://www.jquery2dotnet.com"
+						class="dropdown-toggle" data-toggle="dropdown">Accedi<b
+							class="caret"></b></a>
+						<ul class="dropdown-menu" style="padding: 15px; min-width: 250px;">
+							<li>
+								<div class="row">
+									<div class="col-md-12">
+										<form class="form" role="form" method="post" action="login"
+											accept-charset="UTF-8" id="login-nav">
+											<div class="form-group">
+												<label class="sr-only" for="username">Username</label> <input type="email" class="form-control"
+													id="username" placeholder="username"
+													required>
+											</div>
+											<div class="form-group">
+												<label class="sr-only" for="password">password</label>
+												<input type="password" class="form-control"
+													id="password" placeholder="password" required>
+											</div>
+											<div class="checkbox">
+												<label> <input type="checkbox"> Ricordami
+												</label>
+											</div>
+											<div class="form-group">
+												<button type="submit" class="btn btn-success btn-block">Accedi</button>
+											</div>
+										</form>
+									</div>
+								</div>
+							</li>
+						</ul>
 			</div>
 			<!-- /.navbar-collapse -->
 		</div>
@@ -113,8 +141,8 @@
 							<div class="caption-content">
 								<i class="fa fa-search-plus fa-3x"></i>
 							</div>
-						</div> <img src="img/portfolio/grattacielo.png"
-						class="img-responsive" alt="Cabin">
+						</div> <img src="img/portfolio/grattacielo.png" class="img-responsive"
+						alt="Cabin">
 					</a>
 				</div>
 				<div class="col-sm-4 portfolio-item">
@@ -124,8 +152,8 @@
 							<div class="caption-content">
 								<i class="fa fa-search-plus fa-3x"></i>
 							</div>
-						</div> <img src="img/portfolio/corneille.png"
-						class="img-responsive" alt="Slice of cake">
+						</div> <img src="img/portfolio/corneille.png" class="img-responsive"
+						alt="Slice of cake">
 					</a>
 				</div>
 				<div class="col-sm-4 portfolio-item">
@@ -135,8 +163,8 @@
 							<div class="caption-content">
 								<i class="fa fa-search-plus fa-3x"></i>
 							</div>
-						</div> <img src="img/portfolio/circus.png"
-						class="img-responsive" alt="Circus tent">
+						</div> <img src="img/portfolio/circus.png" class="img-responsive"
+						alt="Circus tent">
 					</a>
 				</div>
 				<div class="col-sm-4 portfolio-item">
@@ -146,8 +174,8 @@
 							<div class="caption-content">
 								<i class="fa fa-search-plus fa-3x"></i>
 							</div>
-						</div> <img src="img/portfolio/game.png"
-						class="img-responsive" alt="Game controller">
+						</div> <img src="img/portfolio/game.png" class="img-responsive"
+						alt="Game controller">
 					</a>
 				</div>
 				<div class="col-sm-4 portfolio-item">
@@ -157,8 +185,8 @@
 							<div class="caption-content">
 								<i class="fa fa-search-plus fa-3x"></i>
 							</div>
-						</div> <img src="img/portfolio/safe.png"
-						class="img-responsive" alt="Safe">
+						</div> <img src="img/portfolio/safe.png" class="img-responsive"
+						alt="Safe">
 					</a>
 				</div>
 				<div class="col-sm-4 portfolio-item">
@@ -168,8 +196,8 @@
 							<div class="caption-content">
 								<i class="fa fa-search-plus fa-3x"></i>
 							</div>
-						</div> <img src="img/portfolio/submarine.png"
-						class="img-responsive" alt="Submarine">
+						</div> <img src="img/portfolio/submarine.png" class="img-responsive"
+						alt="Submarine">
 					</a>
 				</div>
 			</div>
@@ -392,17 +420,17 @@
 							<hr class="star-primary">
 							<img src="img/portfolio/corneille.png"
 								class="img-responsive img-centered" alt="">
-							<p>
-								Sul palcoscenico la scenografia evoca una grande stanza dall’architettura barocca, 
-								circondata da monumentali colonne tortili con alternati motivi floreali, 
-								simili a quelle ideate dal Bernini per il Baldacchino di S. Pietro a Roma. 
-								La luce svolge un ruolo determinante: illumina la donna seduta 
-								al centro della composizione e ne fa la protagonista. 
-								Ella fissa lo spettatore e porta la mano destra al petto, 
-								probabilmente per aver ricevuto una notizia spiacevole dall’uomo alla sua sinistra.
-							</p>
+							<p>Sul palcoscenico la scenografia evoca una grande stanza
+								dall’architettura barocca, circondata da monumentali colonne
+								tortili con alternati motivi floreali, simili a quelle ideate
+								dal Bernini per il Baldacchino di S. Pietro a Roma. La luce
+								svolge un ruolo determinante: illumina la donna seduta al centro
+								della composizione e ne fa la protagonista. Ella fissa lo
+								spettatore e porta la mano destra al petto, probabilmente per
+								aver ricevuto una notizia spiacevole dall’uomo alla sua
+								sinistra.</p>
 							<ul class="list-inline item-details">
-								
+
 							</ul>
 							<button type="button" class="btn btn-default"
 								data-dismiss="modal">
@@ -591,20 +619,29 @@
 		</div>
 	</div>
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/tether/tether.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/tether/tether.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<!-- Plugin JavaScript -->
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Contact Form JavaScript -->
-    <script src="js/jqBootstrapValidation.js"></script>
-    <script src="js/contact_me.js"></script>
+	<!-- Contact Form JavaScript -->
+	<script src="js/jqBootstrapValidation.js"></script>
+	<script src="js/contact_me.js"></script>
 
-    <!-- Custom scripts for this template -->
-    <script src="js/freelancer.min.js"></script>
+	<!-- Custom scripts for this template -->
+	<script src="js/freelancer.min.js"></script>
+	<!-- Popup Login -->
+	<script type="text/javascript">
+	$(document).ready(function(){
+    //Handles menu drop down
+    $('.dropdown-menu').find('form').click(function (e) {
+        e.stopPropagation();
+    });
+});
+</script>
 
 </body>
 
