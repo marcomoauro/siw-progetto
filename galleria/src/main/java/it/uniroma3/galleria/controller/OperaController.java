@@ -25,7 +25,7 @@ public class OperaController  {
     }
 
     @PostMapping("/opera")
-    public String checkCustomerInfo(@Valid @ModelAttribute Opera opera, 
+    public String checkOperaInfo(@Valid @ModelAttribute Opera opera, 
     									BindingResult bindingResult, Model model) {
     	
         if (bindingResult.hasErrors()) {

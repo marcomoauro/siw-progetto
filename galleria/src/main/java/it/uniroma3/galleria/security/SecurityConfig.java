@@ -1,4 +1,4 @@
-/*package it.uniroma3.galleria.security;
+package it.uniroma3.galleria.security;
  
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 
 		auth.jdbcAuthentication().dataSource(dataSource)
-		
 		.passwordEncoder(new BCryptPasswordEncoder())
 		.usersByUsernameQuery("SELECT username,password,1 FROM users where username=?")
 		.authoritiesByUsernameQuery("SELECT username,authority FROM authorities where username=?");
@@ -40,4 +39,4 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         .logout()
            .permitAll();
     }
-}*/
+}
