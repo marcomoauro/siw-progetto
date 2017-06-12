@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 
 <head>
 
@@ -68,9 +70,8 @@
 					<li class="page-scroll"><a href="#portfolio">opere</a></li>
 					<li class="page-scroll"><a href="#about">info</a></li>
 					<li class="page-scroll"><a href="#contact">chi siamo</a></li>
-					<li class="page-scroll"><a href="/signIn">Registrati</a></li>
-					<li class="dropdown">
-					<a href="http://www.jquery2dotnet.com"
+					<li class="page-scroll"><a href="#">Registrati</a></li>
+					<li class="dropdown"><a href="http://www.jquery2dotnet.com"
 						class="dropdown-toggle" data-toggle="dropdown">Accedi<b
 							class="caret"></b></a>
 						<ul class="dropdown-menu" style="padding: 15px; min-width: 250px;">
@@ -80,14 +81,14 @@
 										<form class="form" role="form" method="post" action="login"
 											accept-charset="UTF-8" id="login-nav">
 											<div class="form-group">
-												<label class="sr-only" for="username">Username</label> <input type="email" class="form-control"
-													id="username" placeholder="username"
-													required>
+												<label class="sr-only" for="username">Username</label> <input
+													type="email" class="form-control" id="username"
+													placeholder="username" required>
 											</div>
 											<div class="form-group">
-												<label class="sr-only" for="password">password</label>
-												<input type="password" class="form-control"
-													id="password" placeholder="password" required>
+												<label class="sr-only" for="password">password</label> <input
+													type="password" class="form-control" id="password"
+													placeholder="password" required>
 											</div>
 											<div class="checkbox">
 												<label> <input type="checkbox"> Ricordami
@@ -116,8 +117,9 @@
 					<div class="intro-text">
 						<h1 class="name">benvenuto</h1>
 						<hr class="star-light">
-						<span class="skills">Web Developer - Graphic Artist - User
-							Experience Designer</span>
+						<span class="skills"> 
+						<a style="color:white" href="/welcome">WELCOME</a>
+					<a style="color:white" href="/admin">ADMIN</a></span>
 					</div>
 				</div>
 			</div>
@@ -635,13 +637,13 @@
 	<script src="js/freelancer.min.js"></script>
 	<!-- Popup Login -->
 	<script type="text/javascript">
-	$(document).ready(function(){
-    //Handles menu drop down
-    $('.dropdown-menu').find('form').click(function (e) {
-        e.stopPropagation();
-    });
-});
-</script>
+		$(document).ready(function() {
+			//Handles menu drop down
+			$('.dropdown-menu').find('form').click(function(e) {
+				e.stopPropagation();
+			});
+		});
+	</script>
 
 </body>
 
