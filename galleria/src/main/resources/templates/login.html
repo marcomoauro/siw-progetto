@@ -3,7 +3,7 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-<title>>Welcome Security with Spring Boot!</title>
+<title>>Login</title>
 <link href="../static/css/login.css" th:href="@{/css/login.css}"
 	rel="stylesheet" media="screen" />
 	<link href="../static/vendor/font-awesome/css/font-awesome.min.css" th:href="@{/vendor/font-awesome/css/font-awesome.min.css}"
@@ -14,35 +14,24 @@
 		<div class="container">
 			<div class="middle">
 				<div id="login">
-
-					<div th:if="${param.error}">
-						<h1 style="color: red">Username or Password is wrong. Please
-							check again</h1>
-
-					</div>
-					<div th:if="${param.logout}">
-						<h1 style="color: blue">Logged out.</h1>
-					</div>
 					<form th:action="@{/login}" method="post">
 						<p>
 							<span class="fa fa-user"></span><input type="text"
-								name="username"></input>
+								name="username" placeholder="username"></input>
 						</p>
 						<p>
 							<span class="fa fa-lock"></span><input type="password"
-								name="password"></input>
+								name="password" placeholder="password"></input>
 						</p>
-							<a
-								class="small-text" href="#">Forgot password?</a> <input
-								type="submit" value="Accedi"></input>
+							<span style="width:100%; text-align:center;  display: inline-block;"><input type="submit" value="Accedi"></input></span>
 					</form>
-				</div>
-				<!--  end login -->
-			</div>
-			<!-- end middle -->
-		</div>
-		<!-- end container -->
-	</div>
-	<!-- end main -->
+					<div th:if="${param.error}">
+						<h1 style="color: red">Username o Password errati</h1>
+					</div>
+				</div><!--  end login -->
+				 <div class="logo">Galleria</div>
+			</div><!-- end middle -->
+		</div><!-- end container -->
+	</div><!-- end main -->
 </body>
 </html>
