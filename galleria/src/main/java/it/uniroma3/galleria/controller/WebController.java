@@ -9,7 +9,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import it.uniroma3.galleria.model.Opera;
+import it.uniroma3.galleria.model.Ruolo;
 import it.uniroma3.galleria.model.User;
+import it.uniroma3.galleria.service.RuoloService;
 import it.uniroma3.galleria.service.UserService;
 
 @Controller
@@ -23,6 +25,9 @@ public class WebController {
 	@Autowired
 	private UserService userService;
 	
+	@Autowired
+	private RuoloService ruoloService;
+	
 	@RequestMapping(value={"/signUp"})
 	public String signUp(@Valid @ModelAttribute User user, 
 			BindingResult bindingResult, Model model){
@@ -32,6 +37,7 @@ public class WebController {
         else {
         	model.addAttribute(user);
             userService.add(user); 
+            ruoloService.add(new Ruolo(user.getUsername()));
         }
         return "datiUtente";
     }
