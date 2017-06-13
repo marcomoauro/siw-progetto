@@ -1,7 +1,11 @@
 package it.uniroma3.galleria.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -13,9 +17,13 @@ public class User {
 	@NotNull()
 	private String password;
 	private boolean enabled;
+	@OneToMany
+	private List<Ruolo> ruoli;
 	
 	public User(){
 		this.enabled=true;
+		this.ruoli = new ArrayList<>();
+		this.ruoli.add(new Ruolo("ROLE_USER"));
 	}
 	
 	public User(String username,String password){

@@ -18,7 +18,7 @@ public class UserService {
     public Iterable<User> findAll() {
         return this.userRepository.findAll();
     }
-
+    
     @Transactional
     public void add(final User user) {
         this.userRepository.save(user);
