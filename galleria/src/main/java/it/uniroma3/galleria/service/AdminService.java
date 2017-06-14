@@ -19,8 +19,8 @@ public class AdminService {
     }
     
     @Transactional
-    public void add(final Admin user) throws Exception{
-        this.userRepository.save(user);    	
+    public void add(final Admin admin) throws Exception{
+        this.userRepository.save(admin);    	
     }
     
     public Admin find(final Long id) {

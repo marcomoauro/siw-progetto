@@ -49,4 +49,9 @@ public class AdminController {
 		return "datiAdmin";
 	}
 	
+	@GetMapping("admin/autori")
+	public String gestisciAutori(){
+		return "admin/autori";
+	}
+	
 }

@@ -26,7 +26,7 @@ import it.uniroma3.galleria.service.AutoreService;
 public class AutoreController {
 	
 	@Autowired
-	private AutoreService as;
+	private AutoreService autoreService;
 	
 	@InitBinder
 	public void dataBinding(WebDataBinder binder) {
@@ -37,9 +37,9 @@ public class AutoreController {
 		
 	@GetMapping("/autori")
 	public String showAutori(Model model){
-		List<Autore> autori = (List<Autore>) as.findAll();
+		List<Autore> autori = (List<Autore>) autoreService.findAll();
 		model.addAttribute("autori", autori);
-		return "autore/autoriList";
+		return "admin/autori";
 	}
 
 	@GetMapping("/autore")
@@ -49,14 +49,14 @@ public class AutoreController {
 	
 	@GetMapping("/autore/details")
 	public String showAutore(@RequestParam("id")long id, Model model){
-		Autore a = as.findOne(id);
+		Autore a = autoreService.findOne(id);
 		model.addAttribute("autore", a);
 		return "autore/autoreDetails";
 	}
 	
 	@GetMapping("autore/cancella")
 	public ModelAndView deleteAutore(@RequestParam("id")long id, Model model){
-		as.delete(id);
+		autoreService.delete(id);
 		return new ModelAndView("redirect:/autori");
 	}
 
@@ -68,7 +68,7 @@ public class AutoreController {
 			return "autore/autoreForm";
 		}else{
 			model.addAttribute(autore);
-			as.add(autore);
+			autoreService.add(autore);
 		}
 
 		return "autore/autoreInserito";

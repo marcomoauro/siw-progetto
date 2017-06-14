@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<title>Welcome Security with Spring Boot!</title>
+<link href="../static/css/table.css" th:href="@{/css/table.css}"
+	rel="stylesheet" media="screen" type="text/css" />
+<link href="../static/vendor/bootstrap/css/bootstrap.min.css"
+	th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"
+	media="screen" type="text/css" />
+</head>
+<body>
+	<div class="container">
+		<div class="row col-md-6 col-md-offset-2 custyle">
+			<table class="table table-striped custab">
+				<tr>
+					<th>Nome</th>
+					<th>Cognome</th>
+					<th>Nazionalità</th>
+					<th>Data Nascita</th>
+					<th>Data Morte</th>
+					<th class="text-center">Azione</th>
+				</tr>
+				<tr>
+					<td>1</td>
+					<td>News</td>
+					<td>News Cate</td>
+					<td>News Cate</td>
+					<td>News Cate</td>
+					<td class="text-center"><a class='btn btn-info btn-xs'
+						href="#"><span class="glyphicon glyphicon-edit"></span> Modifica</a> <a
+						href="#" class="btn btn-danger btn-xs"><span
+							class="glyphicon glyphicon-remove"></span> Elimina</a></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>
