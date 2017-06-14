@@ -6,7 +6,8 @@
 <title>>Login</title>
 <link href="../static/css/login.css" th:href="@{/css/login.css}"
 	rel="stylesheet" media="screen" />
-	<link href="../static/vendor/font-awesome/css/font-awesome.min.css" th:href="@{/vendor/font-awesome/css/font-awesome.min.css}"
+<link href="../static/vendor/font-awesome/css/font-awesome.min.css"
+	th:href="@{/vendor/font-awesome/css/font-awesome.min.css}"
 	rel="stylesheet" media="screen" />
 </head>
 <body>
@@ -23,12 +24,40 @@
 							<span class="fa fa-lock"></span><input type="password"
 								name="password" placeholder="password"></input>
 						</p>
-							<span style="width:100%; text-align:center;  display: inline-block;"><input type="submit" value="Accedi"></input></span>
+						
+						<p>
+							<span class="fa fa-map"></span><input type="text"
+								name="nome" placeholder="nome"></input>
+						</p>
+						
+						<p>
+							<span class="fa fa-user"></span><input type="text"
+								name="cognome" placeholder="cognome"></input>
+						</p>
+						
+						<p>
+							<span class="fa fa-user"></span><input type="text"
+								name="email" placeholder="email"></input>
+						</p>
+						
+						<span style="width: 50%; text-align: left; float: left;"><input
+							type="submit" value="Accedi"></input></span>
 					</form>
-				</div><!--  end login -->
-				 <div class="logo">Galleria</div>
-			</div><!-- end middle -->
-		</div><!-- end container -->
-	</div><!-- end main -->
+					<form action="/">
+						<span style="width: 50%; text-align: right;"><input
+							type="submit" value="Home"></input></span>
+					</form>
+					<div th:if="${param.error}">
+						<h1 style="color: red">Username o Password errati</h1>
+					</div>
+				</div>
+				<!--  end login -->
+				<div class="logo">Galleria</div>
+			</div>
+			<!-- end middle -->
+		</div>
+		<!-- end container -->
+	</div>
+	<!-- end main -->
 </body>
 </html>
