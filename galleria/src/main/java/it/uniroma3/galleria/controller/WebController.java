@@ -20,29 +20,6 @@ import it.uniroma3.galleria.service.UserService;
 @Controller
 public class WebController {
 
-	@Autowired
-	private UserService userService;
-
-	@Autowired
-	private RuoloService ruoloService;
-
-	@RequestMapping(value={"/signUp"})
-	public String signUp(@Valid @ModelAttribute User user, 
-			BindingResult bindingResult, Model model){
-		if (bindingResult.hasErrors()) {
-			return "signUp";
-		}else {
-			model.addAttribute(user);
-			try{
-				userService.add(user); 
-			}catch(Exception e){
-				return "signUp";
-			}
-			ruoloService.add(new Ruolo(user.getUsername()));
-		}
-		return "datiUtente";
-	}
-
 	@RequestMapping(value={"/welcome"})
 	public String welcome(){
 		return "welcome";
