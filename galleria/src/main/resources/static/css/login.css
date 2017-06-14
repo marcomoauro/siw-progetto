@@ -171,3 +171,9 @@ h1{
 	color:red;
 	font-size: 12pt;
 }
+
+h2{
+	color: white;
+	font-size: 12pt;
+	text-align: center;
+}

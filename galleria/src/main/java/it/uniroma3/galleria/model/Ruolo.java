@@ -27,6 +27,7 @@ public class Ruolo {
 	}
 	
 	public Ruolo(String nome){
+		this.nome = nome;
 		this.nome=nome;
 		this.ruolo = "ROLE_USER";
 	}
@@ -57,3 +58,4 @@ public class Ruolo {
 	
 	
 }
+
