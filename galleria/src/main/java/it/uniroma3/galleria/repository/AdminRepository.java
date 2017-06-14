@@ -7,9 +7,9 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.data.repository.query.Param;
 
 import it.uniroma3.galleria.model.Ruolo;
-import it.uniroma3.galleria.model.User;
+import it.uniroma3.galleria.model.Admin;
 
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface AdminRepository extends CrudRepository<Admin, Long> {
 
-    List<User> findByUsername(String username);
+    List<Admin> findByUsername(String username);
 }

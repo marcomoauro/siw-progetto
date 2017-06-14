@@ -14,17 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import it.uniroma3.galleria.model.Opera;
 import it.uniroma3.galleria.model.Ruolo;
-import it.uniroma3.galleria.model.User;
+import it.uniroma3.galleria.model.Admin;
 import it.uniroma3.galleria.service.RuoloService;
-import it.uniroma3.galleria.service.UserService;
+import it.uniroma3.galleria.service.AdminService;
 
 @Controller
 public class WebController {
-
-	@RequestMapping(value={"/welcome"})
-	public String welcome(){
-		return "welcome";
-	}
 
 	@RequestMapping(value="/admin")
 	public String admin(){

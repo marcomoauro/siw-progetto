@@ -4,31 +4,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import it.uniroma3.galleria.model.User;
+import it.uniroma3.galleria.model.Admin;
 import it.uniroma3.galleria.repository.OperaRepository;
-import it.uniroma3.galleria.repository.UserRepository;
+import it.uniroma3.galleria.repository.AdminRepository;
 
 @Service
-public class UserService {
+public class AdminService {
 
     @Autowired
-    private UserRepository userRepository; 
+    private AdminRepository userRepository; 
 
-    public Iterable<User> findAll() {
+    public Iterable<Admin> findAll() {
         return this.userRepository.findAll();
     }
     
     @Transactional
-    public void add(final User user) throws Exception{
+    public void add(final Admin user) throws Exception{
         this.userRepository.save(user);    	
     }
     
-    public User find(final Long id) {
+    public Admin find(final Long id) {
     	return this.userRepository.findOne(id);
     }
     
-    public User findByUsername(final String username){
-    	return (User) this.userRepository.findByUsername(username);
+    public Admin findByUsername(final String username){
+    	return (Admin) this.userRepository.findByUsername(username);
     }
 
 }

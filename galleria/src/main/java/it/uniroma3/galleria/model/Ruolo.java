@@ -7,7 +7,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
+/*classe pensata per l'espansione con eventuali utenti, per ora usiamo solo admin poichè
+ * un utente registrato non ha privilegi rispetto a un visitatore*/
 @Entity
 @Table(name="user_roles")
 public class Ruolo {
@@ -28,7 +29,7 @@ public class Ruolo {
 	
 	public Ruolo(String nome){
 		this.nome = nome;
-		this.ruolo = "ROLE_USER";
+		this.ruolo = "ROLE_ADMIN";
 	}
 	
 	public Ruolo(String nome, String ruolo){

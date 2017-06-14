@@ -13,7 +13,7 @@
 		<div class="container">
 			<div class="middle">
 				<div id="login">
-					<form th:action="@{/signUp}" th:object="${user}" method="post">
+					<form th:action="@{/registraAdmin}" th:object="${admin}" method="post">
                         <p>
                             <span class="fa fa-user"></span> 
                             <input type="text"
@@ -51,11 +51,8 @@
 
 					<form action="/">
 						<span style="width: 50%; text-align: right;"><input
-							type="submit" value="Home"></input></span>
+							type="submit" value="Indietro"></input></span>
 					</form>
-					<div th:if="${param.error}">
-						<h1 style="color: red">Username o Password errati</h1>
-					</div>
 				</div>
 				<!--  end login -->
 				<div class="logo">Galleria</div>

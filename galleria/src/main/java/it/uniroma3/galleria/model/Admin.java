@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.Min;
@@ -18,7 +19,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name="users")
-public class User {
+public class Admin {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -46,11 +47,11 @@ public class User {
 	@Email
 	private String email;
 
-	public User(){
+	public Admin(){
 		this.enabled=true;
 	}
 
-	public User(String username,String password,String nome,String cognome,String email){
+	public Admin(String username,String password,String nome,String cognome,String email){
 		this.username = username;
 		this.password = password;
 		this.enabled = true;
@@ -113,5 +114,5 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
-	}
+	}	
 }
