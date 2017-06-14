@@ -28,8 +28,12 @@ public class Ruolo {
 	
 	public Ruolo(String nome){
 		this.nome = nome;
-		this.nome=nome;
 		this.ruolo = "ROLE_USER";
+	}
+	
+	public Ruolo(String nome, String ruolo){
+		this.nome = nome;
+		this.ruolo = ruolo;
 	}
 
 	public Long getId() {

@@ -1,5 +1,7 @@
 package it.uniroma3.galleria.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,6 +19,10 @@ public class RuoloService {
     public void add(final Ruolo ruolo) {
         this.ruoloRepository.save(ruolo);
     }
+
+	public List<Ruolo> findAll() {
+		return (List<Ruolo>) this.ruoloRepository.findAll();
+	}
 
 }
 

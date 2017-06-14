@@ -2,6 +2,7 @@
 <html lang="it" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+	
 <!-- per aggiungere thymeleaf: xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" -->
@@ -16,7 +17,7 @@
 <title>Galleria d'Arte</title>
 
 <!-- Bootstrap Core CSSz -->
-<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom Fonts -->
 <link href="vendor/font-awesome/css/font-awesome.min.css"
@@ -68,6 +69,7 @@
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav navbar-right">
 					<li class="hidden"><a href="#page-top"></a></li>
+					<li class="page-scroll"></li>
 					<li class="page-scroll" sec:authorize="hasRole('ROLE_ADMIN')"><a
 						href="/admin">Admin</a></li>
 					<li class="page-scroll">

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Nomina Admin</title>
+</head>
+<body>
+	<h1>Utenti</h1>
+	<ul>
+		<th:foreach th:each="ruolo : ${ruoli}">
+		 <li th:if="${ruolo.ruolo.equals('ROLE_ADMIN')}"><span th:text="${ruolo.nome}"></span>
+			<a th:href="@{/admin/nominaAdmin(username=${ruolo.nome})}">nomina</a>
+		</li>
+		</th:foreach>
+	</ul>
+</body>
+</html>

@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -26,6 +27,13 @@ public class Opera {
 	@NotNull
 	@Min(1)
 	private Integer anno;
+	
+	@NotNull
+	@ManyToOne
+	private Autore autore;
+	
+	@ManyToOne
+	private Stanza stanza;
 
 	protected Opera() {}
 
@@ -73,4 +81,22 @@ public class Opera {
 				"Opera[id=%d, nome='%s', descrizione='%s', anno=%d]",
 				id, nome, descrizione, anno);
 	}
+
+	public Autore getAutore() {
+		return autore;
+	}
+
+	public void setAutore(Autore autore) {
+		this.autore = autore;
+	}
+
+	public Stanza getStanza() {
+		return stanza;
+	}
+
+	public void setStanza(Stanza stanza) {
+		this.stanza = stanza;
+	}
+	
+	
 }

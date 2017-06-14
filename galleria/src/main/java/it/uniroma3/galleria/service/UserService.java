@@ -22,5 +22,13 @@ public class UserService {
     public void add(final User user) throws Exception{
         this.userRepository.save(user);    	
     }
+    
+    public User find(final Long id) {
+    	return this.userRepository.findOne(id);
+    }
+    
+    public User findByUsername(final String username){
+    	return (User) this.userRepository.findByUsername(username);
+    }
 
 }
