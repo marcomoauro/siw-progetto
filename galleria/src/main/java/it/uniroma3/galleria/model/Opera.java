@@ -30,7 +30,7 @@ public class Opera {
 	@Min(1)
 	private Integer anno;
 	
-	private Dimensione dimensione;
+//	private Dimensione dimensione;
 	
 	@NotNull
 	@ManyToOne

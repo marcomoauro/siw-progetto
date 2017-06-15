@@ -23,7 +23,8 @@
 				class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box"
 				id="navigation">
 				<div class="logo">
-					<a href="/"><img src="/img/portfolio.png" alt="logo" class="hidden-xs hidden-sm"></img></a>
+					<a href="/"><img src="/img/profile.png" alt="logo"
+						class="hidden-xs hidden-sm"></img></a>
 				</div>
 				<div class="navi">
 					<ul>
@@ -34,8 +35,9 @@
 								class="hidden-xs hidden-sm">Opere</span></a></li>
 						<li><a th:href="@{/admin/stanze}"><i class="fa fa-map-o"
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Stanze</span></a></li>
-						<li class="active"><a th:href="@{/admin/autori}"><i class="fa fa-user"
-								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Autori</span></a></li>
+						<li class="active"><a th:href="@{/admin/autori}"><i
+								class="fa fa-user" aria-hidden="true"></i><span
+								class="hidden-xs hidden-sm">Autori</span></a></li>
 						<li><a href="#"><i class="fa fa-plus-circle"
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Aggiungi
 									Admin</span></a></li>
@@ -77,49 +79,69 @@
 						</div>
 					</header>
 				</div>
-				<div class="user-dashboard">
-						<div class="span3">
-
-							<form th:action="@{/admin/autore/inserisci}" th:object="${autore}" method="post">
-								<div>
-									<div>
-										<span th:text="#{label.nome}">Nome: </span> <span><input
-											type="text" th:field="*{nome}" class="span3"/></span> <span
-											th:if="${#fields.hasErrors('nome')}"
-											th:text="#{label.mandatory}">Error</span>
-									</div>
-									<div>
-										<span th:text="#{label.cognome}">Cognome: </span> <span><input
-											type="text" th:field="*{cognome}" class="span3"/></span> <span
-											th:if="${#fields.hasErrors('cognome')}"
-											th:text="#{label.mandatory}">Error</span>
-									</div>
-									<div>
-										<span th:text="#{label.nazionalita}">Nazionalità: </span> <span><input
-											type="text" th:field="*{nazionalita}" class="span3"/></span> <span
-											th:if="${#fields.hasErrors('nazionalita')}"
-											th:text="#{label.mandatory}">Error</span>
-									</div>
-									<div>
-										<span th:text="#{label.dataNascita}">AnnoNascita: </span> <span><input
-											type="text" th:field="*{dataNascita}" class="span3"/></span> <span
-											th:if="${#fields.hasErrors('dataNascita')}"
-											th:text="#{label.date}">Error</span>
-									</div>
-									<div>
-										<span th:text="#{label.dataMorte}">AnnoMorte: </span> <span><input
-											type="text" th:field="*{dataMorte}" class="span3"/></span> <span
-											th:if="${#fields.hasErrors('dataMorte')}"
-											th:text="#{label.date}">Error</span>
-									</div>
-									<div>
-										<span><button class="btn btn-primary" type="submit">Conferma</button></span>
-									</div>
+				<div class="container">
+					<form th:action="@{/admin/autore/inserisci}" th:object="${autore}"
+						method="post" class="form-horizontal" role="form">
+						<fieldset>
+							<legend>Autore</legend>
+							<div class="form-group">
+								<label class="col-sm-3 control-label"><span
+									th:text="#{label.nome}">Nome: </span></label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control" th:field="*{nome}"
+										placeholder="Nome" /><span
+										th:if="${#fields.hasErrors('nome')}"
+										th:text="#{label.mandatory}">Error</span>
 								</div>
-							</form>
-
-						</div>
-
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label"><span
+									th:text="#{label.cognome}">Cognome: </span></label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control" th:field="*{cognome}"
+										placeholder="Cognome" /><span
+										th:if="${#fields.hasErrors('cognome')}"
+										th:text="#{label.mandatory}">Error</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label"><span
+									th:text="#{label.nazionalita}">Nazionalità: </span></label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control"
+										th:field="*{nazionalita}" placeholder="Nazionalità" /><span
+										th:if="${#fields.hasErrors('nazionalita')}"
+										th:text="#{label.mandatory}">Error</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label"><span
+									th:text="#{label.dataNascita}">AnnoNascita: </span></label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control"
+										th:field="*{dataNascita}" placeholder="gg/mm/aaaa" /><span
+										th:if="${#fields.hasErrors('dataNascita')}"
+										th:text="#{label.date}">Error</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label"><span
+									th:text="#{label.dataMorte}">AnnoMorte: </span></label>
+								<div class="col-sm-4">
+									<input type="text" class="form-control" th:field="*{dataMorte}"
+										placeholder="gg/mm/aaaa" /><span
+										th:if="${#fields.hasErrors('dataMorte')}"
+										th:text="#{label.date}">Error</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-sm-offset-4 col-sm-9">
+									<button type="submit" class="btn btn-success">Inserisci
+										Autore</button>
+								</div>
+							</div>
+						</fieldset>
+					</form>
 				</div>
 			</div>
 		</div>
