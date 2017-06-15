@@ -3,6 +3,7 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
+<meta charset="utf-8" />
 <title>Admin - Dati Autore</title>
 <link href="../static/vendor/bootstrap/css/bootstrap.min.css"
 	th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"
@@ -82,21 +83,24 @@
 				<div class="row col-md-10 col-md-offset-2 user-dashboard">
 					Operazione eseguita con successo, hai inserito:
 					<div>
-						<p th:text="'Nome: ' + ${autore.nomeAutore}" />
+						<p th:text="'Nome: ' + ${autore.nome}" />
+					</div>
+					<div>
+						<p th:text="'Cognome: ' + ${autore.cognome}" />
 					</div>
 					<div>
 						<p th:text="'Nazionalita: ' + ${autore.nazionalita}" />
 					</div>
 					<div>
-						<p th:text="'Anno di nascita: ' + ${autore.annoNascita}" />
+						<p th:text="'Anno di nascita: ' + ${dataNascita}" />
 					</div>
 					<div>
-						<p th:if="${autore.annoMorte}"
-							th:text="#{label.annoMorte} +' '+ ${autore.annoMorte}"></p>
+						<p th:if="${autore.dataMorte}"
+							th:text="#{label.dataMorte} +' '+ ${dataMorte}"></p>
 					</div>
-					<form th:action="@{/admin/autore/inserisci}" method="get">
+					<form th:action="@{/admin/autori}" method="get">
 						<input type="submit" class="btn btn-primary"
-							value="Inserisci Nuovo Autore"></input>
+							value="Torna alla pagine degli autori"></input>
 					</form>
 				</div>
 			</div>

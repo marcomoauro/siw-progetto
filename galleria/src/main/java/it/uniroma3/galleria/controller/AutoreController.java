@@ -35,8 +35,8 @@ public class AutoreController {
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	} 
 		
-	@GetMapping("/autori")
-	public String showAutori(Model model){
+	@GetMapping("admin/autori")
+	public String gestisciAutori(Model model){
 		List<Autore> autori = (List<Autore>) autoreService.findAll();
 		model.addAttribute("autori", autori);
 		return "admin/autori";
@@ -47,6 +47,27 @@ public class AutoreController {
 		return "autore/autoreForm";
 	}
 	
+	@PostMapping("admin/autore/inserisci")
+	public String checkAutoreInfo(@Valid @ModelAttribute Autore autore, 
+			BindingResult result, Model model){
+		
+		if(result.hasErrors()){
+			return "autore/autoreForm";
+		}else{
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+			dateFormat.setLenient(true);
+			String dataNascita = dateFormat.format(autore.getDataNascita());
+			String dataMorte = dateFormat.format(autore.getDataMorte());
+			model.addAttribute("dataNascita",dataNascita);
+			model.addAttribute("dataMorte",dataMorte);
+			model.addAttribute(autore);
+			autoreService.add(autore);
+		}
+		
+		return "autore/datiAutore";
+		
+	}
+	
 	@GetMapping("/autore/details")
 	public String showAutore(@RequestParam("id")long id, Model model){
 		Autore a = autoreService.findOne(id);
@@ -54,25 +75,11 @@ public class AutoreController {
 		return "autore/autoreDetails";
 	}
 	
-	@GetMapping("autore/cancella")
+	@GetMapping("admin/autore/elimina")
 	public ModelAndView deleteAutore(@RequestParam("id")long id, Model model){
 		autoreService.delete(id);
-		return new ModelAndView("redirect:/autori");
+		return new ModelAndView("redirect:/admin/autori");
 	}
 
-	@PostMapping("admin/autore/inserisci")
-	public String checkAutoreInfo(@Valid @ModelAttribute Autore autore, 
-			BindingResult result, Model model){
-
-		if(result.hasErrors()){
-			return "autore/autoreForm";
-		}else{
-			model.addAttribute(autore);
-			autoreService.add(autore);
-		}
-
-		return "autore/autoreInserito";
-
-	}
 
 }

@@ -3,6 +3,7 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
+<meta charset="utf-8" />
 <title>Admin</title>
 <link href="../static/vendor/bootstrap/css/bootstrap.min.css"
 	th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"
@@ -22,23 +23,18 @@
 				class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box"
 				id="navigation">
 				<div class="logo">
-					<a href="/"><img
-						src="http://jskrishna.com/work/merkury/images/logo.png"
-						alt="merkery_logo" class="hidden-xs hidden-sm"></img> <img
-						src="http://jskrishna.com/work/merkury/images/circle-logo.png"
-						alt="merkery_logo" class="visible-xs visible-sm circle-logo"></img>
-					</a>
+					<a href="/"><img src="/img/portfolio.png" alt="logo" class="hidden-xs hidden-sm"></img></a>
 				</div>
 				<div class="navi">
 					<ul>
-						<li class="active"><a href="/admin"><i class="fa fa-home"
+						<li><a href="/admin"><i class="fa fa-home"
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
 						<li><a th:href="@{/admin/opere}"><i
 								class="fa fa-file-image-o" aria-hidden="true"></i><span
 								class="hidden-xs hidden-sm">Opere</span></a></li>
 						<li><a th:href="@{/admin/stanze}"><i class="fa fa-map-o"
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Stanze</span></a></li>
-						<li><a th:href="@{/admin/autori}"><i class="fa fa-user"
+						<li class="active"><a th:href="@{/admin/autori}"><i class="fa fa-user"
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Autori</span></a></li>
 						<li><a href="#"><i class="fa fa-plus-circle"
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Aggiungi
@@ -63,7 +59,7 @@
 								</div>
 							</nav>
 							<div class="search hidden-xs hidden-sm">Galleria D'Arte -
-								Pagina Admin</div>
+								Inscerisci Autore</div>
 						</div>
 						<div class="col-md-5">
 							<div class="header-rightside">
@@ -82,47 +78,47 @@
 					</header>
 				</div>
 				<div class="user-dashboard">
-						<fieldset>
+						<div class="span3">
 
-							<form th:action="@{/autore/inserisci}" th:object="${autore}" method="post">
+							<form th:action="@{/admin/autore/inserisci}" th:object="${autore}" method="post">
 								<div>
 									<div>
-										<span th:text="#{label.nomeAutore}">Nome: </span> <span><input
-											type="text" th:field="*{nome}" /></span> <span
+										<span th:text="#{label.nome}">Nome: </span> <span><input
+											type="text" th:field="*{nome}" class="span3"/></span> <span
 											th:if="${#fields.hasErrors('nome')}"
 											th:text="#{label.mandatory}">Error</span>
 									</div>
 									<div>
-										<span th:text="#{label.nomeAutore}">Cognome: </span> <span><input
-											type="text" th:field="*{cognome}" /></span> <span
+										<span th:text="#{label.cognome}">Cognome: </span> <span><input
+											type="text" th:field="*{cognome}" class="span3"/></span> <span
 											th:if="${#fields.hasErrors('cognome')}"
 											th:text="#{label.mandatory}">Error</span>
 									</div>
 									<div>
 										<span th:text="#{label.nazionalita}">Nazionalità: </span> <span><input
-											type="text" th:field="*{nazionalita}" /></span> <span
+											type="text" th:field="*{nazionalita}" class="span3"/></span> <span
 											th:if="${#fields.hasErrors('nazionalita')}"
 											th:text="#{label.mandatory}">Error</span>
 									</div>
 									<div>
 										<span th:text="#{label.dataNascita}">AnnoNascita: </span> <span><input
-											type="text" th:field="*{'dataNascita}" /></span> <span
+											type="text" th:field="*{dataNascita}" class="span3"/></span> <span
 											th:if="${#fields.hasErrors('dataNascita')}"
 											th:text="#{label.date}">Error</span>
 									</div>
 									<div>
 										<span th:text="#{label.dataMorte}">AnnoMorte: </span> <span><input
-											type="text" th:field="*{'dataMorte}" /></span> <span
+											type="text" th:field="*{dataMorte}" class="span3"/></span> <span
 											th:if="${#fields.hasErrors('dataMorte')}"
 											th:text="#{label.date}">Error</span>
 									</div>
 									<div>
-										<span><button type="submit">Conferma</button></span>
+										<span><button class="btn btn-primary" type="submit">Conferma</button></span>
 									</div>
 								</div>
 							</form>
 
-						</fieldset>
+						</div>
 
 				</div>
 			</div>

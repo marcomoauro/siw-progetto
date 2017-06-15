@@ -97,11 +97,11 @@
 						</tr>
 						<th:foreach th:each="autore: ${autori}">		
 						<tr>
-							<td>${autore.nome}</td>
-							<td>${autore.cognome}</td>
-							<td>${autore.nazionalita}</td>
-							<td>${autore.dataNascita}</td>
-							<td>${autore.dataMorte}</td>
+							<td><span th:text="${autore.nome}"></span></td>
+							<td><span th:text="${autore.cognome}"></span></td>
+							<td><span th:text="${autore.nazionalita}"></span></td>
+							<td><span th:text="${autore.dataNascita}"></span></td>
+							<td><span th:text="${autore.dataMorte}"></span></td>
 							<td class="text-center">
 							<a class='btn btn-info btn-xs' th:href="@{autore/modifica?(id=${autore.id})}">
 							<span class="glyphicon glyphicon-edit"></span>Modifica</a> 
