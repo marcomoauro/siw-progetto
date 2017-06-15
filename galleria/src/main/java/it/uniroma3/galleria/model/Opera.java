@@ -7,7 +7,6 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -30,7 +29,17 @@ public class Opera {
 	@Min(1)
 	private Integer anno;
 	
-	private Dimensione dimensione;
+	@NotNull
+	@Min(1)
+	private Integer lunghezza;
+	
+	@NotNull
+	@Min(1)
+	private Integer altezza;
+	
+	@NotNull
+	@NotEmpty
+	private String imgURL;
 	
 	@NotNull
 	@ManyToOne
@@ -40,12 +49,6 @@ public class Opera {
 	private Stanza stanza;
 
 	protected Opera() {}
-
-	public Opera(String nome, String descrizione, Integer anno) {
-		this.nome = nome;
-		this.descrizione = descrizione;
-		this.anno = anno;
-	}
 
 	public Long getId() {
 		return id;
@@ -101,6 +104,31 @@ public class Opera {
 	public void setStanza(Stanza stanza) {
 		this.stanza = stanza;
 	}
+
+	public Integer getLunghezza() {
+		return lunghezza;
+	}
+
+	public void setLunghezza(Integer lunghezza) {
+		this.lunghezza = lunghezza;
+	}
+
+	public Integer getAltezza() {
+		return altezza;
+	}
+
+	public void setAltezza(Integer altezza) {
+		this.altezza = altezza;
+	}
+
+	public String getImgURL() {
+		return imgURL;
+	}
+
+	public void setImgURL(String imgURL) {
+		this.imgURL = imgURL;
+	}
+	
 	
 	
 }

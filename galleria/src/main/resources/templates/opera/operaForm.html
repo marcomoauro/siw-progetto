@@ -14,8 +14,6 @@
 	rel="stylesheet" media="screen" type="text/css" />
 <link href="../static/css/table.css" th:href="@{/css/table.css}"
 	rel="stylesheet" media="screen" />
-<link href="../static/css/popup.css" th:href="@{/css/popup.css}"
-	rel="stylesheet" media="screen" />
 </head>
 
 <body class="home">
@@ -25,9 +23,8 @@
 				class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box"
 				id="navigation">
 				<div class="logo">
-					<a href="/"> <img src="/img/profile.png" alt="logo"
-						class="hidden-xs hidden-sm"></img>
-					</a>
+					<a href="/"><img src="/img/profile.png" alt="logo"
+						class="hidden-xs hidden-sm"></img> </a>
 				</div>
 				<div class="navi">
 					<ul>
@@ -82,50 +79,69 @@
 					</header>
 				</div>
 				<div class="row col-md-10 col-md-offset-2 user-dashboard">
-					<div style="text-align: center">
-						<form th:action="@{/admin/opera/inserisci}" method="get">
-							<input type="submit" class="btn btn-primary"
-								value="Inserisci Nuova Opera"></input>
-						</form>
-					</div>
-					<table class="table table-striped custab">
-						<tr>
-							<th>Nome</th>
-							<th>Descrizione</th>
-							<th>Anno</th>
-							<th>Dimensione</th>
-							<th>Immagine</th>
-							<th>Autore</th>
-							<th>Stanza</th>
-							<th class="text-center">Azione</th>
-						</tr>
-						<th:foreach th:each="opera: ${opere}">
-							<tr>
-								<td><span th:text="${opera.nome}"></span></td>
-								<td><a data-toggle="modal" href="#normalModal"
-									class="btn btn-default">Descrizione</a>
-									</td>
-								<td><span th:text="${opera.anno}"></span></td>
-								<td><span
-									th:text="${opera.lunghezza} +'x'+${opera.altezza}"></span></td>
-								<td><a th:href="${opera.imgURL}" target="_blank">Immagine</a></td>
-								<td><span th:text="${opera.autore.nome}"></span></td>
-								<td><span th:text="${opera?.stanza?.nome}"></span></td>
-
-								<td class="text-center"><a class='btn btn-info btn-xs'
-									th:href="@{opera/modifica?(id=${opera.id})}"> <span
-										class="glyphicon glyphicon-edit"></span>Modifica
-								</a> <a th:href="@{opera/elimina?(id=${opera.id})}"
-									class="btn btn-danger btn-xs"> <span
-										class="glyphicon glyphicon-remove"></span> Elimina
-								</a></td>
-							</tr>
-						</th:foreach>
-					</table>
+					<form action="#" th:action="@{/admin/opera/inserisci}" th:object="${opera}"
+						method="post">
+						<div>
+							<div>
+								<span th:text="#{label.nome}">Nome: </span> <span><input
+									type="text" th:field="*{nome}" /></span> <span
+									th:if="${#fields.hasErrors('nome')}"
+									th:text="#{label.mandatory}">Error</span>
+							</div>
+							<div>
+								<span th:text="#{label.descrizione}">Descrizione: </span> <span><input
+									type="text" th:field="*{descrizione}" /></span> <span
+									th:if="${#fields.hasErrors('descrizione')}"
+									th:text="#{label.mandatory}">Error</span>
+							</div>
+							<div>
+								<span th:text="#{label.anno}">Anno: </span> <span><input
+									type="text" th:field="*{anno}" /></span> <span
+									th:if="${#fields.hasErrors('anno')}" th:text="#{label.number}">Error</span>
+							</div>
+							<div>
+								<span th:text="#{label.lunghezza}">Lunghezza: </span> <span><input
+									type="text" th:field="*{lunghezza}" /></span> <span
+									th:if="${#fields.hasErrors('lunghezza')}" th:text="#{label.number}">Error</span>
+							</div>
+							<div>
+								<span th:text="#{label.altezza}">Altezza: </span> <span><input
+									type="text" th:field="*{altezza}" /></span> <span
+									th:if="${#fields.hasErrors('altezza')}" th:text="#{label.number}">Error</span>
+							</div>
+							<div>
+								<span th:text="#{label.immagine}">Immagine: </span> 
+								<span><input type="text" th:field="*{imgURL}" /></span> <span
+									th:if="${#fields.hasErrors('imgURL')}" th:text="#{label.mandatory}">Error</span>
+							</div>
+							<div>
+								<span th:text="#{label.autore}">Autore: </span> 
+								<select th:field="*{autore}">
+									<th:foreach th:each="autore: ${autori}">
+										<option th:value="${autore.id}" th:text="${autore.nome}"></option>
+									</th:foreach>
+								</select>
+							</div>	
+							<div>
+								<span th:text="#{label.stanze}">Stanze: </span> 
+								<select th:field="*{stanza}">
+									<th:foreach th:each="stanza: ${stanze}">
+										<option th:value="${stanza.id}" th:text="${stanza.nome}"></option>
+									</th:foreach>
+								</select>
+							</div>		
+							
+							<div>
+								<span><input class="btn btn-primary" type="submit" value="Invia"></input></span>
+							</div>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
 	</div>
+
+
 
 	<script th:inline="javascript">
 		$(document).ready(function() {
@@ -134,8 +150,6 @@
 			});
 		});
 	</script>
-	<script th:src="@{../js/popup.js}">...</script>
 	<script th:src="@{../vendor/bootstrap/js/bootstrap.min.js}">...</script>
-
 </body>
 </html>

@@ -35,19 +35,19 @@ public class AutoreController {
 		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
 	} 
 		
-	@GetMapping("admin/autori")
+	@GetMapping("/admin/autori")
 	public String gestisciAutori(Model model){
 		List<Autore> autori = (List<Autore>) autoreService.findAll();
 		model.addAttribute("autori", autori);
 		return "admin/autori";
 	}
 
-	@GetMapping("admin/autore/inserisci")
+	@GetMapping("/admin/autore/inserisci")
 	public String showForm(Autore autore){
 		return "autore/autoreForm";
 	}
 	
-	@PostMapping("admin/autore/inserisci")
+	@PostMapping("/admin/autore/inserisci")
 	public String checkAutoreInfo(@Valid @ModelAttribute Autore autore, 
 			BindingResult result, Model model){
 		
@@ -78,7 +78,7 @@ public class AutoreController {
 		return "autore/autoreDetails";
 	}
 	
-	@GetMapping("admin/autore/elimina")
+	@GetMapping("/admin/autore/elimina")
 	public ModelAndView deleteAutore(@RequestParam("id")long id, Model model){
 		autoreService.delete(id);
 		return new ModelAndView("redirect:/admin/autori");
