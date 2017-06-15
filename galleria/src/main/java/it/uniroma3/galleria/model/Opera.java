@@ -9,6 +9,8 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class Opera {
 
@@ -17,16 +19,18 @@ public class Opera {
 	private Long id;
 
 	@NotNull
-	@Size(min=1)
+	@NotEmpty
 	private String nome;
 
 	@NotNull
-	@Size(min=1)
+	@NotEmpty
 	private String descrizione;
 
 	@NotNull
 	@Min(1)
 	private Integer anno;
+	
+	private Dimensione dimensione;
 	
 	@NotNull
 	@ManyToOne

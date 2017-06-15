@@ -57,13 +57,16 @@ public class AutoreController {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 			dateFormat.setLenient(true);
 			String dataNascita = dateFormat.format(autore.getDataNascita());
-			String dataMorte = dateFormat.format(autore.getDataMorte());
 			model.addAttribute("dataNascita",dataNascita);
-			model.addAttribute("dataMorte",dataMorte);
-			model.addAttribute(autore);
-			autoreService.add(autore);
-		}
-		
+			try {
+				String dataMorte = dateFormat.format(autore.getDataMorte());
+				model.addAttribute("dataMorte",dataMorte);
+				model.addAttribute(autore);
+			} catch (Exception e) {
+				model.addAttribute(autore);
+			}
+			autoreService.add(autore); 
+		}		
 		return "autore/datiAutore";
 		
 	}
