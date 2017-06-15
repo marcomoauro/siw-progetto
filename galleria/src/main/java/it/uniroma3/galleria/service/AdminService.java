@@ -12,23 +12,23 @@ import it.uniroma3.galleria.repository.AdminRepository;
 public class AdminService {
 
     @Autowired
-    private AdminRepository userRepository; 
+    private AdminRepository adminRepository; 
 
     public Iterable<Admin> findAll() {
-        return this.userRepository.findAll();
+        return this.adminRepository.findAll();
     }
     
     @Transactional
     public void add(final Admin admin) throws Exception{
-        this.userRepository.save(admin);    	
+        this.adminRepository.save(admin);    	
     }
     
     public Admin find(final Long id) {
-    	return this.userRepository.findOne(id);
+    	return this.adminRepository.findOne(id);
     }
     
     public Admin findByUsername(final String username){
-    	return (Admin) this.userRepository.findByUsername(username);
+    	return (Admin) this.adminRepository.findByUsername(username);
     }
 
 }

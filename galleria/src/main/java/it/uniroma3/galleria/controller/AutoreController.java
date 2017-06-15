@@ -42,7 +42,7 @@ public class AutoreController {
 		return "admin/autori";
 	}
 
-	@GetMapping("/autore")
+	@GetMapping("admin/autore/inserisci")
 	public String showForm(Autore autore){
 		return "autore/autoreForm";
 	}
@@ -60,7 +60,7 @@ public class AutoreController {
 		return new ModelAndView("redirect:/autori");
 	}
 
-	@PostMapping("/autore")
+	@PostMapping("admin/autore/inserisci")
 	public String checkAutoreInfo(@Valid @ModelAttribute Autore autore, 
 			BindingResult result, Model model){
 

@@ -14,27 +14,6 @@
 	rel="stylesheet" media="screen" type="text/css" />
 
 </head>
-<!-- <h1 style="color: blue">Hello! This is Admin Page!</h1>
-
-	<a style="color: blue" th:href="@{/}">Go to Home Page</a>
-	<br></br>
-	<a th:href="@{/admin/registraAdmin}">Registra
-Admin</a>
-	<br></br>
-	<a style="color: blue" th:href="@{/admin/autori}">Gestisci Autori</a>
-	<br></br>
-	<a style="color: blue" th:href="@{/admin/opere}">Gestisci Opere</a>
-	<br></br>
-	<a style="color: blue" th:href="@{/admin/stanze}">Gestisci Stanze</a>
-	<br></br>
-	
-
-	<br />
-
-	<form th:action="@{/logout}" method="post">
-		<input type="submit" value="Sign Out" />
-	</form>
- -->
 
 <body class="home">
 	<div class="container-fluid display-table">
@@ -44,27 +23,22 @@ Admin</a>
 				id="navigation">
 				<div class="logo">
 					<a href="/"><img
-						src="http://jskrishna.com/work/merkury/images/logo.png"
-						alt="merkery_logo" class="hidden-xs hidden-sm"></img> <img
-						src="http://jskrishna.com/work/merkury/images/circle-logo.png"
-						alt="merkery_logo" class="visible-xs visible-sm circle-logo"></img>
+						src="/img/profile.png" alt="logo" class="hidden-xs hidden-sm"></img>
 					</a>
 				</div>
 				<div class="navi">
 					<ul>
-						<li class="active"><a href="#"><i class="fa fa-home"
+						<li class="active"><a href="/admin"><i class="fa fa-home"
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
-						<li><a th:href="@{/admin/stanze}"><i class="fa fa-tasks"
+						<li><a th:href="@{/admin/opere}"><i class="fa fa-file-image-o"
+								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Opere</span></a></li>
+						<li><a th:href="@{/admin/stanze}"><i class="fa fa-map-o"
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Stanze</span></a></li>
 						<li><a th:href="@{/admin/autori}"><i
-								class="fa fa-bar-chart" aria-hidden="true"></i><span
+								class="fa fa-user" aria-hidden="true"></i><span
 								class="hidden-xs hidden-sm">Autori</span></a></li>
-						<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span
-								class="hidden-xs hidden-sm">Non lo so</span></a></li>
-						<li><a href="#"><i class="fa fa-calendar"
-								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Users</span></a></li>
-						<li><a th:href="@{/admin/opere}"><i class="fa fa-cog"
-								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Opere</span></a></li>
+						<li><a href="#"><i class="fa fa-plus-circle" aria-hidden="true"></i><span
+								class="hidden-xs hidden-sm">Aggiungi Admin</span></a></li>
 					</ul>
 				</div>
 			</div>
@@ -91,7 +65,7 @@ Admin</a>
 							<div class="header-rightside">
 								<ul class="list-inline header-top pull-right">
 									<li><i class="fa fa-user" aria-hidden="true"></i></li>
-									<li>Nome</li>
+									<li>Username</li>
 									<li>Email</li>
 									<li>
 										<form th:action="@{/logout}" method="post">
@@ -104,38 +78,11 @@ Admin</a>
 					</header>
 				</div>
 				<div class="user-dashboard">
-					<h1>Bentornato, Nome Utente</h1>
+					<h1>Bentornato, NomeAdmin<!-- <span th:text="${admin.username}"></span> --></h1>
 				</div>
 			</div>
 		</div>
 
-	</div>
-
-
-
-	<!-- Modal -->
-	<div id="add_project" class="modal fade" role="dialog">
-		<div class="modal-dialog">
-
-			<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header login-header">
-					<button type="button" class="close" data-dismiss="modal">×</button>
-					<h4 class="modal-title">Add Project</h4>
-				</div>
-				<div class="modal-body">
-					<input type="text" placeholder="Project Title" name="name"></input>
-					<input type="text" placeholder="Post of Post" name="mail"></input>
-					<input type="text" placeholder="Author" name="passsword"></input>
-					<textarea placeholder="Desicrption"></textarea>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="cancel" data-dismiss="modal">Close</button>
-					<button type="button" class="add-project" data-dismiss="modal">Save</button>
-				</div>
-			</div>
-
-		</div>
 	</div>
 	<script th:inline="javascript">
 		$(document).ready(function() {

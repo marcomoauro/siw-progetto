@@ -15,6 +15,8 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class Autore {
 	@Id
@@ -22,20 +24,20 @@ public class Autore {
 	private Long id;
 	
 	@NotNull
-	@Size(min=1)	
+	@NotEmpty	
 	private String nome;
 	
 	@NotNull
-	@Size(min=1)
+	@NotEmpty
 	private String cognome;
 	
 	@NotNull
-	@Size(min=1)
+	@NotEmpty
 	private String nazionalita;
 	
 	@NotNull
-	@Past
 	@Temporal(TemporalType.DATE)
+	@Past
 	private Date dataNascita;
 	
 	@Temporal(TemporalType.DATE)
