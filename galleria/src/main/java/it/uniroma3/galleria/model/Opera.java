@@ -24,6 +24,7 @@ public class Opera {
 
 	@NotNull
 	@NotEmpty
+	@Size(max=2000)
 	private String descrizione;
 
 	@NotNull
@@ -42,7 +43,6 @@ public class Opera {
 	@NotEmpty
 	private String imgURL;
 	
-	@NotNull
 	@ManyToOne
 	private Autore autore;
 	

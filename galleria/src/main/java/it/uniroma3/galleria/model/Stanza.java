@@ -26,6 +26,7 @@ public class Stanza {
 	
 	@NotNull
 	@NotEmpty
+	@Size(max=2000)
 	private String descrizione;
 	
 	@OneToMany()

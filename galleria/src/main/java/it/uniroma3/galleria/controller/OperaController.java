@@ -1,5 +1,6 @@
 package it.uniroma3.galleria.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -39,39 +40,40 @@ public class OperaController  {
 	}
 
     @GetMapping("/admin/opera/inserisci")
-    public String operaForm(Model model, Opera opera){
-    	List<Autore> autori = (List<Autore>) autoreService.findAll();
-    	List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
-    	model.addAttribute("autori",autori);
-    	model.addAttribute("stanze",stanze);
+    public String operaForm(Model model, Opera opera,ArrayList<Autore> autori,ArrayList<Stanza> stanze){
+    	List<Autore> autoriX = (List<Autore>) autoreService.findAll();
+    	List<Stanza> stanzeX = (List<Stanza>) stanzaService.findAll();
+    	model.addAttribute("autori",autoriX);
+    	model.addAttribute("stanze",stanzeX);
     	return "opera/operaForm";
     }
     
     @PostMapping("/admin/opera/inserisci")
-    public ModelAndView checkOperaInfo(@Valid @ModelAttribute Opera opera, 
+    public String checkOperaInfo(@Valid @ModelAttribute Opera opera, 
     									BindingResult bindingResult, Model model,
-    									@RequestParam("autoreId") Long autId,
-    									@RequestParam("stanzaId") Long staId) {
+    									@RequestParam("autoreId") String autId,
+    									@RequestParam("stanzaId") String staId) {
     	
         if (bindingResult.hasErrors()) {
-            return new ModelAndView("redirect:/admin/opera/inserisci");
+            return "opera/operaForm";
         }
         else {
-        	model.addAttribute(opera);
-        	Autore autore = autoreService.findOne(autId);
+        	Long autoreId = Long.parseLong(autId);
+        	Long stanzaId = Long.parseLong(staId);
+        	Autore autore = autoreService.findOne(autoreId);
 			opera.setAutore(autore);
 			autore.getOpere().add(opera);
-			model.addAttribute(autore);
-			model.addAttribute(opera);
-			if(autId!=0){
-				Stanza stanza = stanzaService.findOne(staId);
+			if(stanzaId != 0){
+				Stanza stanza = stanzaService.findOne(stanzaId);
 				opera.setStanza(stanza);
 				stanza.getOpere().add(opera);
 				model.addAttribute(stanza);
 			}
+			model.addAttribute(autore);
+			model.addAttribute(opera);
             operaService.add(opera); 
         }
-        return new ModelAndView("opera/datiOpera");
+        return "opera/datiOpera";
     }
     
     @GetMapping("/admin/opera/elimina")
