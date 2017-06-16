@@ -13,9 +13,14 @@
 <link href="../static/css/admin.css" th:href="@{/css/admin.css}"
 	rel="stylesheet" media="screen" type="text/css" />
 <link href="../static/css/table.css" th:href="@{/css/table.css}"
-	rel="stylesheet" media="screen" />
+	rel="stylesheet" media="screen" type="text/css" />
 <link href="../static/css/popup.css" th:href="@{/css/popup.css}"
-	rel="stylesheet" media="screen" />
+	rel="stylesheet" media="screen" type="text/css" />
+<link href="../static/css/stile-custom.css"
+	th:href="@{/css/stile-custom.css}" rel="stylesheet" media="screen"
+	type="text/css" />
+<script th:src="@{../vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{../vendor/bootstrap/js/bootstrap.min.js}"></script>
 </head>
 
 <body class="home">
@@ -43,7 +48,6 @@
 						<li><a href="#"><i class="fa fa-plus-circle"
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Aggiungi
 									Admin</span></a></li>
-						<li><div class="bottom"></div></li>
 					</ul>
 				</div>
 			</div>
@@ -51,19 +55,7 @@
 				<div class="row">
 					<header>
 						<div class="col-md-7">
-							<nav class="navbar-default pull-left">
-								<div class="navbar-header">
-									<button type="button" class="navbar-toggle collapsed"
-										data-toggle="offcanvas" data-target="#side-menu"
-										aria-expanded="false">
-										<span class="sr-only">Toggle navigation</span> <span
-											class="icon-bar"></span> <span class="icon-bar"></span> <span
-											class="icon-bar"></span>
-									</button>
-								</div>
-							</nav>
-							<div class="search hidden-xs hidden-sm">Galleria D'Arte -
-								Pagina Admin</div>
+							<div class="titolo">Pagina Admin - Gestisci Opere</div>
 						</div>
 						<div class="col-md-5">
 							<div class="header-rightside">
@@ -102,13 +94,11 @@
 						<th:foreach th:each="opera: ${opere}">
 							<tr>
 								<td><span th:text="${opera.nome}"></span></td>
-								<td><a data-toggle="modal" href="#normalModal"
-									class="btn btn-default">Descrizione</a>
-									</td>
+								<td><a th:href="'#'+${opera.id}" data-toggle="modal">Descrizione</a></td>
 								<td><span th:text="${opera.anno}"></span></td>
 								<td><span
 									th:text="${opera.lunghezza} +'x'+${opera.altezza}"></span></td>
-								<td><a th:href="${opera.imgURL}" target="_blank">Immagine</a></td>
+								<td><a th:href="'#'+${opera.id}" data-toggle="modal">Immagine</a></td>
 								<td><span th:text="${opera.autore.nome}"></span></td>
 								<td><span th:text="${opera?.stanza?.nome}"></span></td>
 
@@ -120,6 +110,31 @@
 										class="glyphicon glyphicon-remove"></span> Elimina
 								</a></td>
 							</tr>
+							<!-- Modal -->
+							<div class="modal fade" th:id="${opera.id}" tabindex="-1" role="dialog"
+								aria-hidden="true">
+									<div class="vertical-alignment-helper">
+        							<div class="modal-dialog vertical-align-center">
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">
+												<span aria-hidden="true"></span><span class="sr-only">Chiudi</span>
+											</button>
+												<span th:text="${opera.nome}"></span>
+										</div>
+										<div class="modal-body">
+										<span th:text="${opera.descrizione}"></span><br></br>
+										<img th:src="${opera.imgURL}"></img>
+										</div>
+										<div class="modal-footer"><button id="btnSubmit" type="button" class="btn btn-default"
+								data-dismiss="modal">
+								<i class="fa fa-times"></i> Close
+							</button></div>
+									</div>
+								</div>
+							</div>
+						</div>
+							<!-- End Modal -->
 						</th:foreach>
 					</table>
 				</div>
@@ -134,8 +149,5 @@
 			});
 		});
 	</script>
-	<script th:src="@{../js/popup.js}">...</script>
-	<script th:src="@{../vendor/bootstrap/js/bootstrap.min.js}">...</script>
-
 </body>
 </html>

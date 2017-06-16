@@ -71,13 +71,6 @@ public class AutoreController {
 		
 	}
 	
-	@GetMapping("/autore/details")
-	public String showAutore(@RequestParam("id")long id, Model model){
-		Autore a = autoreService.findOne(id);
-		model.addAttribute("autore", a);
-		return "autore/autoreDetails";
-	}
-	
 	@GetMapping("/admin/autore/elimina")
 	public ModelAndView deleteAutore(@RequestParam("id")long id, Model model){
 		autoreService.delete(id);

@@ -11,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.uniroma3.galleria.model.Autore;
@@ -59,5 +60,11 @@ public class OperaController  {
         }
         return new ModelAndView("opera/datiOpera");
     }
+    
+    @GetMapping("/admin/opera/elimina")
+	public ModelAndView deleteOpera(@RequestParam("id")long id, Model model){
+		operaService.delete(id);
+		return new ModelAndView("redirect:/admin/opere");
+	}
 }
 

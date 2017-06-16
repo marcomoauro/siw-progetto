@@ -26,4 +26,9 @@ public class OperaService {
 		return this.operaRepository.findOne(id);
 	}
 
+	public void delete(long id) {
+		this.operaRepository.delete(id);
+		
+	}
+
 }

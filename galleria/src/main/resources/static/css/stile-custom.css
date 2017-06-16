@@ -1,0 +1,55 @@
+.titolo {
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 18pt;
+	color: light-grey;
+	margin-top: 5px;
+}
+
+.modal-header {
+	text-aling: center;
+	font-style: bold;
+}
+
+.modal-content {
+	width: 60%;
+}
+
+.modal-body {
+	font-style: italic;
+	font-size: 16pt;
+	text-align: center;
+}
+
+.modal-body>img {
+	display: block;
+	max-width: 300px;
+	max-height: 400px;
+	width: auto;
+	height: auto;
+	margin: auto;
+	border: 2px solid black;
+}
+
+.vertical-alignment-helper {
+    display:table;
+    height: 100%;
+    width: 100%;
+    pointer-events:none;
+}
+.vertical-align-center {
+    /* To center vertically */
+    display: table-cell;
+    vertical-align: middle;
+    pointer-events:none;
+}
+.modal-content {
+    /* Bootstrap sets the size of the modal in the modal-dialog class, we need to inherit it */
+    width:inherit;
+    height:inherit;
+    /* To center horizontally */
+    margin: 0 auto;
+    pointer-events:all;
+}
+.modal-footer{
+	text-align:center;
+}
