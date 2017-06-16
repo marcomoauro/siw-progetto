@@ -56,6 +56,10 @@ public class OperaController  {
     									@RequestParam("id") Long id) {
     	
         if (bindingResult.hasErrors()) {
+        	List<Autore> autoriX = (List<Autore>) autoreService.findAll();
+        	List<Stanza> stanzeX = (List<Stanza>) stanzaService.findAll();
+        	model.addAttribute("autori",autoriX);
+        	model.addAttribute("stanze",stanzeX);
             return "opera/operaForm";
         }
         else {

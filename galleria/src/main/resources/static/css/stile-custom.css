@@ -53,3 +53,8 @@
 .modal-footer{
 	text-align:center;
 }
+
+.form-group{
+	margin:0px;
+	padding:0px;
+}

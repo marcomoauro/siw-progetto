@@ -14,8 +14,9 @@
 	rel="stylesheet" media="screen" type="text/css" />
 <link href="../static/css/table.css" th:href="@{/css/table.css}"
 	rel="stylesheet" media="screen" />
-	<link href="../static/css/stile-custom.css" th:href="@{/css/stile-custom.css}"
-	rel="stylesheet" media="screen" type="text/css"/>
+<link href="../static/css/stile-custom.css"
+	th:href="@{/css/stile-custom.css}" rel="stylesheet" media="screen"
+	type="text/css" />
 </head>
 
 <body class="home">
@@ -39,7 +40,7 @@
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Stanze</span></a></li>
 						<li><a th:href="@{/admin/autori}"><i class="fa fa-user"
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Autori</span></a></li>
-						<li><a href="#"><i class="fa fa-plus-circle"
+						<li><a href=""><i class="fa fa-plus-circle"
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Aggiungi
 									Admin</span></a></li>
 						<li><div class="bottom"></div></li>
@@ -68,111 +69,112 @@
 						</div>
 					</header>
 				</div>
-				<div class="container">
-					<form th:action="@{/admin/opera/inserisci(id=${opera.id})}" th:object="${opera}"
-						method="post" class="form-horizontal" role="form">
-						<fieldset>
-							<legend>Opera</legend>
-							<div class="form-group">
-								<label class="col-sm-3 control-label"><span
-									th:text="#{label.nome}">Nome: </span></label>
-								<div class="col-sm-4">
-									<input type="text" class="form-control" th:field="*{nome}"
-										placeholder="Nome" /><span
-										th:if="${#fields.hasErrors('nome')}"
-										th:text="#{label.mandatory}">Error</span>
+					<div class="row col-md-10 col-md-offset-2 user-dashboard">
+						<form th:action="@{/admin/opera/inserisci(id=${opera.id})}"
+							th:object="${opera}" method="post" class="form-horizontal"
+							role="form">
+							<fieldset>
+								<legend>Opera</legend>
+								<div class="form-group">
+									<label class="col-sm-3 control-label"><span
+										th:text="#{label.nome}">Nome: </span></label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" th:field="*{nome}"
+											placeholder="Nome" /><span
+											th:if="${#fields.hasErrors('nome')}"
+											th:text="#{label.mandatory}">Error</span>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label"><span
-									th:text="#{label.descrizione}">Descrizione: </span></label>
-								<div class="col-sm-4">
-									<input type="text" class="form-control" th:field="*{descrizione}"
-										placeholder="Descrizione" /><span
-										th:if="${#fields.hasErrors('descrizione')}"
-										th:text="#{label.mandatory}">Error</span>
+								<div class="form-group">
+									<label class="col-sm-3 control-label"><span
+										th:text="#{label.descrizione}">Descrizione: </span></label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control"
+											th:field="*{descrizione}" placeholder="Descrizione" /><span
+											th:if="${#fields.hasErrors('descrizione')}"
+											th:text="#{label.mandatory}">Error</span>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label"><span
-									th:text="#{label.anno}">Anno: </span></label>
-								<div class="col-sm-4">
-									<input type="text" class="form-control"
-										th:field="*{anno}" placeholder="Anno" /><span
-										th:if="${#fields.hasErrors('anno')}"
-										th:text="#{label.number}">Error</span>
+								<div class="form-group">
+									<label class="col-sm-3 control-label"><span
+										th:text="#{label.anno}">Anno: </span></label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" th:field="*{anno}"
+											placeholder="Anno" /><span
+											th:if="${#fields.hasErrors('anno')}"
+											th:text="#{label.number}">Error</span>
+									</div>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label"><span
-									th:text="#{label.lunghezza}">Lunghezza: </span></label>
-								<div class="col-sm-4">
-									<input type="text" class="form-control"
-										th:field="*{lunghezza}" placeholder="lunghezza" /><span
-										th:if="${#fields.hasErrors('lunghezza')}"
-										th:text="#{label.number}">Error</span>
+								<div class="form-group">
+									<label class="col-sm-3 control-label"><span
+										th:text="#{label.lunghezza}">Lunghezza: </span></label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control"
+											th:field="*{lunghezza}" placeholder="lunghezza" /><span
+											th:if="${#fields.hasErrors('lunghezza')}"
+											th:text="#{label.number}">Error</span>
+									</div>
 								</div>
-							</div>
-							
-							<div class="form-group">
-								<label class="col-sm-3 control-label"><span
-									th:text="#{label.altezza}">Altezza: </span></label>
-								<div class="col-sm-4">
-									<input type="text" class="form-control"
-										th:field="*{altezza}" placeholder="altezza" /><span
-										th:if="${#fields.hasErrors('altezza')}"
-										th:text="#{label.number}">Error</span>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label"><span
+										th:text="#{label.altezza}">Altezza: </span></label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" th:field="*{altezza}"
+											placeholder="altezza" /><span
+											th:if="${#fields.hasErrors('altezza')}"
+											th:text="#{label.number}">Error</span>
+									</div>
 								</div>
-							</div>
-							
-							<div class="form-group">
-								<label class="col-sm-3 control-label"><span
-									th:text="#{label.immagine}">Immagine: </span></label>
-								<div class="col-sm-4">
-									<input type="text" class="form-control" th:field="*{imgURL}"
-										placeholder="URL" /><span
-										th:if="${#fields.hasErrors('imgURL')}"
-										th:text="#{label.mandatory}">Error</span>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label"><span
+										th:text="#{label.immagine}">Immagine: </span></label>
+									<div class="col-sm-4">
+										<input type="text" class="form-control" th:field="*{imgURL}"
+											placeholder="URL" /><span
+											th:if="${#fields.hasErrors('imgURL')}"
+											th:text="#{label.mandatory}">Error</span>
+									</div>
 								</div>
-							</div>
-							
-							<div class="form-group">
-								<label class="col-sm-3 control-label"><span
-									th:text="#{label.autore}">Autore: </span></label>
-								<div class="col-sm-4">
-									<select name="autoreId">
-									<th:foreach th:each="autore: ${autori}">
-										<option th:value="${autore.id}" th:text="${autore.nome}+' '+${autore.cognome}"></option>
-									</th:foreach>
-									</select>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label"><span
+										th:text="#{label.autore}">Autore: </span></label>
+									<div class="col-sm-4">
+										<select class="form-control" id="sel1" name="autoreId">
+											<th:foreach th:each="autore: ${autori}">
+												<option th:value="${autore.id}"
+													th:text="${autore.nome}+' '+${autore.cognome}"></option>
+											</th:foreach>
+										</select>
+									</div>
 								</div>
-							</div>
-							
-							<div class="form-group">
-								<label class="col-sm-3 control-label"><span
-									th:text="#{label.stanze}">Stanze: </span></label>
-								<div class="col-sm-4">
-									<select name="stanzaId">
-										<option value="0">Nessuna</option>
-									<th:foreach th:each="stanza: ${stanze}">
-										<option th:value="${stanza.id}" th:text="${stanza.nome}"></option>
-									</th:foreach>
-									</select>
+
+								<div class="form-group">
+									<label class="col-sm-3 control-label"><span
+										th:text="#{label.stanze}">Stanze: </span></label>
+									<div class="col-sm-4">
+										<select class="form-control" id="sel1" name="stanzaId">
+											<option value="0">Nessuna</option>
+											<th:foreach th:each="stanza: ${stanze}">
+												<option th:value="${stanza.id}" th:text="${stanza.nome}"></option>
+											</th:foreach>
+										</select>
+									</div>
 								</div>
-							</div>
-							
-							<div class="form-group">
-								<div class="col-sm-offset-4 col-sm-9">
-									<button type="submit" class="btn btn-success">Inserisci
-										Opera</button>
+
+								<div class="form-group">
+									<div class="col-sm-offset-4 col-sm-9">
+										<button type="submit" class="btn btn-success">Inserisci Opera</button>
+									</div>
 								</div>
-							</div>
-						</fieldset>
-					</form>
-				</div>			
+							</fieldset>
+						</form>
+					</div>
+				</div>
 			</div>
 		</div>
-	</div>
 	<script th:inline="javascript">
 		$(document).ready(function() {
 			$('[data-toggle="offcanvas"]').click(function() {

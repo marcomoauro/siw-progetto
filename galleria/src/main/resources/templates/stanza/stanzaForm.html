@@ -32,10 +32,10 @@
 					<ul>
 						<li><a href="/admin"><i class="fa fa-home"
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
-						<li class="active"><a th:href="@{/admin/opere}"><i
+						<li><a th:href="@{/admin/opere}"><i
 								class="fa fa-file-image-o" aria-hidden="true"></i><span
 								class="hidden-xs hidden-sm">Opere</span></a></li>
-						<li><a th:href="@{/admin/stanze}"><i class="fa fa-map-o"
+						<li class="active"><a th:href="@{/admin/stanze}"><i class="fa fa-map-o"
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Stanze</span></a></li>
 						<li><a th:href="@{/admin/autori}"><i class="fa fa-user"
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Autori</span></a></li>
@@ -68,14 +68,10 @@
 						</div>
 					</header>
 				</div>
-			
-			
-			
-			
-				<div class="container">
+				<div class="row col-md-10 col-md-offset-2 user-dashboard">
 					<form th:action="@{/admin/stanza/inserisci(id=${stanza.id})}" th:object="${stanza}"
 						method="post" class="form-horizontal" role="form">
-						<fieldset>
+						<fieldset style="margin:auto;width:80%">
 							<legend>Stanza</legend>
 							<div class="form-group">
 								<label class="col-sm-3 control-label"><span
@@ -105,10 +101,10 @@
 							</div>
 						</fieldset>
 					</form>
+					</div>
 				</div>			
 			</div>
 		</div>
-	</div>
 	<script th:inline="javascript">
 		$(document).ready(function() {
 			$('[data-toggle="offcanvas"]').click(function() {
