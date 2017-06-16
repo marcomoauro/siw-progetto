@@ -11,6 +11,8 @@ import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 @Entity
 public class Stanza {
 //
@@ -19,11 +21,11 @@ public class Stanza {
 	private Long id;
 	
 	@NotNull
-	@Size(min=1)
+	@NotEmpty
 	private String nome;
 	
 	@NotNull
-	@Size(min=1)
+	@NotEmpty
 	private String descrizione;
 	
 	@OneToMany()

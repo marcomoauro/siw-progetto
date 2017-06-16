@@ -36,17 +36,17 @@ public class StanzaController {
     }
 	
 	@PostMapping("/admin/stanza/inserisci")
-    public ModelAndView checkstanzaInfo(@Valid @ModelAttribute Stanza stanza, 
+    public String checkstanzaInfo(@Valid @ModelAttribute Stanza stanza, 
     									BindingResult bindingResult, Model model) {
     	
         if (bindingResult.hasErrors()) {
-            return new ModelAndView("redirect:/admin/stanza/inserisci");
+            return "stanza/stanzaForm";
         }
         else {
         	model.addAttribute(stanza);
             stanzaService.add(stanza); 
         }
-        return new ModelAndView("stanza/datiStanza");
+        return "stanza/datiStanza";
     }
 	
 	@GetMapping("/admin/stanza/elimina")

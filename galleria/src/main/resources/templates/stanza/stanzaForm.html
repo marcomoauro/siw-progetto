@@ -50,7 +50,7 @@
 				<div class="row">
 					<header>
 						<div class="col-md-7">
-							<div class="titolo">Pagina Admin - Gestisci Opere</div>
+							<div class="titolo">Pagina Admin - Inserisci Stanza</div>
 						</div>
 						<div class="col-md-5">
 							<div class="header-rightside">
@@ -73,10 +73,10 @@
 			
 			
 				<div class="container">
-					<form th:action="@{/admin/opera/inserisci}" th:object="${opera}"
+					<form th:action="@{/admin/stanza/inserisci}" th:object="${stanza}"
 						method="post" class="form-horizontal" role="form">
 						<fieldset>
-							<legend>Opera</legend>
+							<legend>Stanza</legend>
 							<div class="form-group">
 								<label class="col-sm-3 control-label"><span
 									th:text="#{label.nome}">Nome: </span></label>
@@ -96,79 +96,11 @@
 										th:if="${#fields.hasErrors('descrizione')}"
 										th:text="#{label.mandatory}">Error</span>
 								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label"><span
-									th:text="#{label.anno}">Anno: </span></label>
-								<div class="col-sm-4">
-									<input type="text" class="form-control"
-										th:field="*{anno}" placeholder="Anno" /><span
-										th:if="${#fields.hasErrors('anno')}"
-										th:text="#{label.number}">Error</span>
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-3 control-label"><span
-									th:text="#{label.lunghezza}">Lunghezza: </span></label>
-								<div class="col-sm-4">
-									<input type="text" class="form-control"
-										th:field="*{lunghezza}" placeholder="lunghezza" /><span
-										th:if="${#fields.hasErrors('lunghezza')}"
-										th:text="#{label.number}">Error</span>
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<label class="col-sm-3 control-label"><span
-									th:text="#{label.altezza}">Altezza: </span></label>
-								<div class="col-sm-4">
-									<input type="text" class="form-control"
-										th:field="*{altezza}" placeholder="altezza" /><span
-										th:if="${#fields.hasErrors('altezza')}"
-										th:text="#{label.number}">Error</span>
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<label class="col-sm-3 control-label"><span
-									th:text="#{label.immagine}">Immagine: </span></label>
-								<div class="col-sm-4">
-									<input type="text" class="form-control" th:field="*{imgURL}"
-										placeholder="URL" /><span
-										th:if="${#fields.hasErrors('imgURL')}"
-										th:text="#{label.mandatory}">Error</span>
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<label class="col-sm-3 control-label"><span
-									th:text="#{label.autore}">Autore: </span></label>
-								<div class="col-sm-4">
-									<select name="autoreId">
-									<th:foreach th:each="autore: ${autori}">
-										<option th:value="${autore.id}" th:text="${autore.nome}+' '+${autore.cognome}"></option>
-									</th:foreach>
-									</select>
-								</div>
-							</div>
-							
-							<div class="form-group">
-								<label class="col-sm-3 control-label"><span
-									th:text="#{label.stanze}">Stanze: </span></label>
-								<div class="col-sm-4">
-									<select name="stanzaId">
-										<option value="0">Nessuna</option>
-									<th:foreach th:each="stanza: ${stanze}">
-										<option th:value="${stanza.id}" th:text="${stanza.nome}"></option>
-									</th:foreach>
-									</select>
-								</div>
-							</div>
-							
+							</div>							
 							<div class="form-group">
 								<div class="col-sm-offset-4 col-sm-9">
 									<button type="submit" class="btn btn-success">Inserisci
-										Opera</button>
+										Stanza</button>
 								</div>
 							</div>
 						</fieldset>

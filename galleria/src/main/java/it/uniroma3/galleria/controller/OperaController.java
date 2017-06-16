@@ -49,13 +49,26 @@ public class OperaController  {
     
     @PostMapping("/admin/opera/inserisci")
     public ModelAndView checkOperaInfo(@Valid @ModelAttribute Opera opera, 
-    									BindingResult bindingResult, Model model) {
+    									BindingResult bindingResult, Model model,
+    									@RequestParam("autoreId") Long autId,
+    									@RequestParam("stanzaId") Long staId) {
     	
         if (bindingResult.hasErrors()) {
             return new ModelAndView("redirect:/admin/opera/inserisci");
         }
         else {
         	model.addAttribute(opera);
+        	Autore autore = autoreService.findOne(autId);
+			opera.setAutore(autore);
+			autore.getOpere().add(opera);
+			model.addAttribute(autore);
+			model.addAttribute(opera);
+			if(autId!=0){
+				Stanza stanza = stanzaService.findOne(staId);
+				opera.setStanza(stanza);
+				stanza.getOpere().add(opera);
+				model.addAttribute(stanza);
+			}
             operaService.add(opera); 
         }
         return new ModelAndView("opera/datiOpera");

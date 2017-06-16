@@ -1,9 +1,12 @@
 package it.uniroma3.galleria.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import it.uniroma3.galleria.model.Opera;
 import it.uniroma3.galleria.model.Stanza;
 import it.uniroma3.galleria.repository.StanzaRepository;
 
@@ -11,25 +14,24 @@ import it.uniroma3.galleria.repository.StanzaRepository;
 public class StanzaService {
 
 	@Autowired
-	private StanzaRepository sr;
+	private StanzaRepository stanzaRepository;
 	
 	public Iterable<Stanza> findAll(){
-		return this.sr.findAll();
+		return this.stanzaRepository.findAll();
 	}
 	
 	public Stanza findOne(Long id){
-		return this.sr.findOne(id);
+		return this.stanzaRepository.findOne(id);
 	}
 	
 	@Transactional
 	public void add(final Stanza stanza){
-		this.sr.save(stanza);
+		this.stanzaRepository.save(stanza);
 	}
 	
 	@Transactional
 	public void delete(Long id){
-		this.sr.delete(id);
+		this.stanzaRepository.delete(id);
 	}
-
 	
 }

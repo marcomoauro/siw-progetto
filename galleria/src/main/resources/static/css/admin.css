@@ -750,7 +750,8 @@ button, html [type="button"], [type="reset"], [type="submit"] {
 		width: 100%;
 	}
 	body, html {
-		overflow: hidden height:100%;
+		overflow: hidden;
+		height:100%;
 		margn: 0;
 		padding: 0;
 	}

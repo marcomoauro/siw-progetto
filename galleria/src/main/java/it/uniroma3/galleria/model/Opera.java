@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
@@ -29,7 +30,6 @@ public class Opera {
 	@Min(1)
 	private Integer anno;
 	
-
 	@NotNull
 	@Min(1)
 	private Integer lunghezza;
@@ -46,10 +46,8 @@ public class Opera {
 	@ManyToOne
 	private Autore autore;
 	
-	@ManyToOne
+	@ManyToOne(optional=true)
 	private Stanza stanza;
-
-	protected Opera() {}
 
 	public Long getId() {
 		return id;
