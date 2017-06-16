@@ -41,9 +41,6 @@ public class Opera {
 	@NotNull
 	@NotEmpty
 	private String imgURL;
-
-//	private Dimensione dimensione;
-
 	
 	@NotNull
 	@ManyToOne
@@ -132,7 +129,4 @@ public class Opera {
 	public void setImgURL(String imgURL) {
 		this.imgURL = imgURL;
 	}
-	
-	
-	
 }
