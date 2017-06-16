@@ -1,27 +1,119 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org">
-<body>
-<h1>Hai inserito:</h1>
-	<div>
-    	<p>
-    	<span th:text="#{label.nome}">Nome: </span>  <b><span th:text="${opera.nome}" ></span></b>
-    	</p>
-    </div>
-	<div>
-	    <p>
-    	<span th:text="#{label.descrizione}">Descrizione: </span>  <b><span th:text="${opera.descrizione}" ></span></b>
-   		</p> 
-    </div>
-	<div>
-		<p>
-    	<span th:text="#{label.anno}">Anno: </span>  <b><span th:text="${opera.anno}" ></span></b>	
-		</p>    
-    </div>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+<meta charset="utf-8" />
+<title>Admin - Dati Autore</title>
+<link href="../static/vendor/bootstrap/css/bootstrap.min.css"
+	th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet"
+	media="screen" type="text/css" />
+<link href="../static/vendor/font-awesome/css/font-awesome.min.css"
+	th:href="@{/vendor/font-awesome/css/font-awesome.min.css}"
+	rel="stylesheet" media="screen" type="text/css" />
+<link href="../static/css/admin.css" th:href="@{/css/admin.css}"
+	rel="stylesheet" media="screen" type="text/css" />
+<link href="../static/css/table.css" th:href="@{/css/table.css}"
+	rel="stylesheet" media="screen" />
+	<link href="../static/css/stile-custom.css" th:href="@{/css/stile-custom.css}"
+	rel="stylesheet" media="screen" type="text/css"/>
+</head>
 
-<form action="#" th:action="@{/admin/opera/inserisci}" method="get">
-<button type="submit">Torna alla form</button>
-</form>
+<body class="home">
+	<div class="container-fluid display-table">
+		<div class="row display-table-row">
+			<div
+				class="col-md-2 col-sm-1 hidden-xs display-table-cell v-align box"
+				id="navigation">
+				<div class="logo">
+					<a href="/"><img src="/img/profile.png" alt="logo"
+						class="hidden-xs hidden-sm"></img> </a>
+				</div>
+				<div class="navi">
+					<ul>
+						<li><a href="/admin"><i class="fa fa-home"
+								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Home</span></a></li>
+						<li class="active"><a th:href="@{/admin/opere}"><i
+								class="fa fa-file-image-o" aria-hidden="true"></i><span
+								class="hidden-xs hidden-sm">Opere</span></a></li>
+						<li><a th:href="@{/admin/stanze}"><i class="fa fa-map-o"
+								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Stanze</span></a></li>
+						<li ><a th:href="@{/admin/autori}"><i
+								class="fa fa-user" aria-hidden="true"></i><span
+								class="hidden-xs hidden-sm">Autori</span></a></li>
+						<li><a href="#"><i class="fa fa-plus-circle"
+								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Aggiungi
+									Admin</span></a></li>
+						<li><div class="bottom"></div></li>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-10 display-table-cell v-align">
+				<div class="row">
+					<header>
+						<div class="col-md-7">
+							<div class="titolo">Pagina Admin - Dati Autore</div>
+						</div>
+						<div class="col-md-5">
+							<div class="header-rightside">
+								<ul class="list-inline header-top pull-right">
+									<li><i class="fa fa-user" aria-hidden="true"></i></li>
+									<li>Username</li>
+									<li>Email</li>
+									<li>
+										<form th:action="@{/logout}" method="post">
+											<input class="btn btn-primary" type="submit" value="Log Out" />
+										</form>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</header>
+				</div>
+				<div class="row col-md-10 col-md-offset-2 user-dashboard">
+					Operazione eseguita con successo, hai inserito:
+					<div>
+						<p th:text="'Nome: ' + ${opera.nome}" />
+					</div>
+					<div>
+						<p th:text="'Descrizione: ' + ${opera.descrizione}" />
+					</div>
+					<div>
+						<p th:text="'Anno: ' + ${opera.anno}" />
+					</div>
+					<div>
+						<p th:text="'Lunghezza: ' + ${opera.lunghezza}" />
+					</div>
+					<div>
+						<p th:text="'Altezza: ' + ${opera.altezza}" />
+					</div>
+					<div>
+						<p th:text="'URL: ' + ${opera.imgURL}" />
+					</div>
+					<div>
+						<p th:text="'Autore: ' + ${opera.autore.nome}" />
+					</div>
+					<div>
+						<p th:text="'Stanza: ' + ${opera?.stanza?.nome}" />
+					</div>
+					<form th:action="@{/admin/opere}" method="get">
+						<input type="submit" class="btn btn-primary"
+							value="Torna alla pagine degli autori"></input>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
 
+
+	<script th:inline="javascript">
+		$(document).ready(function() {
+			$('[data-toggle="offcanvas"]').click(function() {
+				$("#navigation").toggleClass("hidden-xs");
+			});
+		});
+	</script>
+	<script th:src="@{../vendor/bootstrap/js/bootstrap.min.js}">...</script>
 
 </body>
 </html>
