@@ -44,7 +44,7 @@ public class Autore {
 	@Past
 	private Date dataMorte;
 	
-	@OneToMany(mappedBy="stanza",cascade = {CascadeType.REMOVE})
+	@OneToMany(mappedBy="autore",cascade = {CascadeType.REMOVE})
 	private List<Opera> opere;
 	
 	public Autore(){

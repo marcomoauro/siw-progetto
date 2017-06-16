@@ -52,7 +52,8 @@ public class OperaController  {
     public String checkOperaInfo(@Valid @ModelAttribute Opera opera, 
     									BindingResult bindingResult, Model model,
     									@RequestParam("autoreId") String autId,
-    									@RequestParam("stanzaId") String staId) {
+    									@RequestParam("stanzaId") String staId,
+    									@RequestParam("id") Long id) {
     	
         if (bindingResult.hasErrors()) {
             return "opera/operaForm";
@@ -67,9 +68,8 @@ public class OperaController  {
 				Stanza stanza = stanzaService.findOne(stanzaId);
 				opera.setStanza(stanza);
 				stanza.getOpere().add(opera);
-				model.addAttribute(stanza);
 			}
-			model.addAttribute(autore);
+			if(id != null) opera.setId(id);
 			model.addAttribute(opera);
             operaService.add(opera); 
         }
@@ -80,6 +80,13 @@ public class OperaController  {
 	public ModelAndView deleteOpera(@RequestParam("id")long id, Model model){
 		operaService.delete(id);
 		return new ModelAndView("redirect:/admin/opere");
+	}
+    
+    @GetMapping("/admin/opera/modifica")
+	public String modificaOpera(@RequestParam("id") Long id, Model model){
+		Opera opera = this.operaService.findOne(id);
+		model.addAttribute(opera);
+		return "opera/operaForm";
 	}
 }
 

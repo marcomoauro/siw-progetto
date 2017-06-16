@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import it.uniroma3.galleria.model.Opera;
 import it.uniroma3.galleria.model.Stanza;
 import it.uniroma3.galleria.service.StanzaService;
 
@@ -37,12 +38,14 @@ public class StanzaController {
 	
 	@PostMapping("/admin/stanza/inserisci")
     public String checkstanzaInfo(@Valid @ModelAttribute Stanza stanza, 
-    									BindingResult bindingResult, Model model) {
+    									BindingResult bindingResult, Model model,
+    									@RequestParam("id") Long id) {
     	
         if (bindingResult.hasErrors()) {
             return "stanza/stanzaForm";
         }
         else {
+        	if(id != null) stanza.setId(id);
         	model.addAttribute(stanza);
             stanzaService.add(stanza); 
         }
@@ -53,6 +56,13 @@ public class StanzaController {
 	public ModelAndView deleteStanza(@RequestParam("id")long id, Model model){
 		stanzaService.delete(id);
 		return new ModelAndView("redirect:/admin/stanze");
+	}
+	
+	@GetMapping("/admin/stanza/modifica")
+	public String modificaStanza(@RequestParam("id") Long id, Model model){
+	Stanza stanza = this.stanzaService.findOne(id);
+		model.addAttribute(stanza);
+		return "stanza/stanzaForm";
 	}
 
 }

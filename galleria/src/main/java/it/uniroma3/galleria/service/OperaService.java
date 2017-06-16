@@ -19,13 +19,14 @@ public class OperaService {
 	public Iterable<Opera> findAll() {
 		return this.operaRepository.findAll();
 	}
+	
+	public Opera findOne(Long id){
+		return this.operaRepository.findOne(id);
+	}
 
 	@Transactional
 	public void add(final Opera opera) {
 		this.operaRepository.save(opera);
-	}
-	public Opera findbyId(Long id) {
-		return this.operaRepository.findOne(id);
 	}
 
 	public void delete(long id) {
@@ -36,5 +37,6 @@ public class OperaService {
 	public List<Opera> findByStanza(Stanza stanza){
 		return this.operaRepository.findByStanza(stanza);
 	}
+
 
 }

@@ -49,7 +49,7 @@ public class AutoreController {
 	
 	@PostMapping("/admin/autore/inserisci")
 	public String checkAutoreInfo(@Valid @ModelAttribute Autore autore, 
-			BindingResult result, Model model){
+			BindingResult result, Model model,@RequestParam("id") Long id){
 		
 		if(result.hasErrors()){
 			return "autore/autoreForm";
@@ -65,6 +65,7 @@ public class AutoreController {
 			} catch (Exception e) {
 				model.addAttribute(autore);
 			}
+			if(id != null) autore.setId(id);
 			autoreService.add(autore); 
 		}		
 		return "autore/datiAutore";
@@ -72,9 +73,16 @@ public class AutoreController {
 	}
 	
 	@GetMapping("/admin/autore/elimina")
-	public ModelAndView deleteAutore(@RequestParam("id")long id, Model model){
+	public ModelAndView deleteAutore(@RequestParam("id") Long id, Model model){
 		autoreService.delete(id);
 		return new ModelAndView("redirect:/admin/autori");
+	}
+	
+	@GetMapping("/admin/autore/modifica")
+	public String modificaAutore(@RequestParam("id") Long id, Model model){
+		Autore autore = this.autoreService.findOne(id);
+		model.addAttribute(autore);
+		return "autore/autoreForm";
 	}
 
 
