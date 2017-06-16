@@ -29,6 +29,7 @@ public class Opera {
 	@Min(1)
 	private Integer anno;
 	
+
 	@NotNull
 	@Min(1)
 	private Integer lunghezza;
@@ -40,6 +41,9 @@ public class Opera {
 	@NotNull
 	@NotEmpty
 	private String imgURL;
+
+//	private Dimensione dimensione;
+
 	
 	@NotNull
 	@ManyToOne
