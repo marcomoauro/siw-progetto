@@ -31,7 +31,7 @@
 <!-- Theme CSS -->
 <link href="../static/css/freelancer.min.css"
 	th:href="@{/css/freelancer.min.css}" rel="stylesheet" />
-	
+
 <link href="../static/css/stile-custom.css"
 	th:href="@{/css/stile-custom.css}" rel="stylesheet" />
 
@@ -110,17 +110,41 @@
 				<div class="col-lg-12 text-center">
 					<h2>Opere</h2>
 					<hr class="star-primary" />
+					<h1>Ultimi Arrivi</h1>
 				</div>
 			</div>
 			<div class="row">
 				<th:forEach th:each="opera: ${recenti}">
 					<div class="col-sm-4 portfolio-item">
 						<a th:href="'#opera'+${opera.id}" data-toggle="modal"
-							class="portfolio-link"> <img th:src="${opera.imgURL}"
-							class="img-responsive" th:alt="${opera.nome}" />
+							class="portfolio-link">
+							<div class="caption">
+								<div class="caption-content">
+									<i class="fa fa-search-plus fa-3x"></i>
+								</div>
+							</div> <img th:src="${opera.imgURL}" class="img-responsive"
+							th:alt="${opera.nome}" />
 						</a>
 					</div>
 				</th:forEach>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<hr class="star-primary" />
+					<h1>Ricerca Opera</h1>
+					<form th:action="@{/opera/cerca}" method="post">
+						<div id="custom-search-input">
+							<div class="input-group col-md-12">
+								<input type="text" class="  search-query form-control"
+									placeholder="Cerca Opera" name="nomeOpera"/> <span class="input-group-btn">
+									<button class="btn btn-danger" type="button">
+										<span class=" glyphicon glyphicon-search"></span>
+									</button>
+								</span>
+							</div>
+						</div>
+					</form>
+				</div>
 			</div>
 		</div>
 	</section>
@@ -297,9 +321,7 @@
 								<hr class="star-primary" />
 
 								<img th:src="${opera.imgURL}" class="img-responsive"
-									th:alt="${opera.nome}" />
-
-									<span th:text="${opera.descrizione}"></span><br/>
+									th:alt="${opera.nome}" /> <span th:text="${opera.descrizione}"></span><br />
 								<button type="button" class="btn btn-default"
 									data-dismiss="modal">
 									<i class="fa fa-times"></i> Chiudi

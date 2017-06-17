@@ -96,5 +96,17 @@ public class OperaController  {
     	model.addAttribute("stanze",stanze);
 		return "opera/operaForm";
 	}
+    
+    @PostMapping("/opera/cerca")
+    public String cercaOpera(Model model, @RequestParam("nomeOpera") String nome){
+    	List<Opera> opere = (List<Opera>) operaService.findAll();
+    	List<Opera> risultati = new ArrayList<>();
+    	for(Opera opera: opere){
+    		if(opera.getNome().toUpperCase().contains(nome.toUpperCase()))
+    			risultati.add(opera);
+    	}
+    	model.addAttribute("risultati", risultati);
+    	return "opera/risultatoRicerca";
+    }
 }
 
