@@ -24,7 +24,7 @@ public class AdminController {
 	@Autowired
 	private RuoloService ruoloService;
 
-	@GetMapping("admin/admin")
+	@GetMapping("admin/admins")
 	public String showForm(Model model){
 		List<Admin> admins = (List<Admin>) adminService.findAll();
 		model.addAttribute("admins",admins);

@@ -58,3 +58,27 @@
 	margin:0px;
 	padding:0px;
 }
+
+.mostraDati{
+	margin: auto;
+	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 14pt;
+	text-align: center;
+}
+
+.mostraDati p { display: inline }
+
+.dati{
+	color: #204a87;
+	font-style: italic;
+}
+
+.portfolio-item img{
+	display: block;
+	max-width: 300px;
+	max-height: 400px;
+	width: auto;
+	height: auto;
+	margin: auto;
+	
+}

@@ -41,7 +41,7 @@
 						<li ><a th:href="@{/admin/autori}"><i
 								class="fa fa-user" aria-hidden="true"></i><span
 								class="hidden-xs hidden-sm">Autori</span></a></li>
-						<li class="active"><a th:href="@{/admin/admin}"><i class="fa fa-plus-circle"
+						<li class="active"><a th:href="@{/admin/admins}"><i class="fa fa-plus-circle"
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Aggiungi
 									Admin</span></a></li>
 						<li><div class="bottom"></div></li>
@@ -93,14 +93,12 @@
 							<td><span th:text="${admin.nome}"></span></td>
 							<td><span th:text="${admin.cognome}"></span></td>
 							<td><span th:text="${admin.email}"></span></td>
-							<!--  
 							<td class="text-center">
-							<a class='btn btn-info btn-xs' th:href="@{autore/modifica?(id=${autore.id})}">
+							<a class='btn btn-info btn-xs' th:href="@{admin/modifica?(id=${admin.id})}">
 							<span class="glyphicon glyphicon-edit"></span>Modifica</a> 
-							<a th:href="@{autore/elimina?(id=${autore.id})}" class="btn btn-danger btn-xs">
+							<a th:href="@{admin/elimina?(id=${admin.id})}" class="btn btn-danger btn-xs">
 							<span class="glyphicon glyphicon-remove"></span> Elimina</a>
 							</td>
-							-->
 						</tr>
 						</th:foreach>
 					</table>

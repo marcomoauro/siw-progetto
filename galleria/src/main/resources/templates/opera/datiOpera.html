@@ -41,7 +41,7 @@
 						<li ><a th:href="@{/admin/autori}"><i
 								class="fa fa-user" aria-hidden="true"></i><span
 								class="hidden-xs hidden-sm">Autori</span></a></li>
-						<li><a href="#"><i class="fa fa-plus-circle"
+						<li><a th:href="@{/admin/admins}"><i class="fa fa-plus-circle"
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Aggiungi
 									Admin</span></a></li>
 						<li><div class="bottom"></div></li>
@@ -52,7 +52,7 @@
 				<div class="row">
 					<header>
 						<div class="col-md-7">
-							<div class="titolo">Pagina Admin - Dati Autore</div>
+							<div class="titolo">Pagina Admin - Dati Opera</div>
 						</div>
 						<div class="col-md-5">
 							<div class="header-rightside">
@@ -71,35 +71,41 @@
 					</header>
 				</div>
 				<div class="row col-md-10 col-md-offset-2 user-dashboard">
-					Operazione eseguita con successo, hai inserito:
+					<div class="mostraDati">
+					<div class="dati">Operazione eseguita con successo, hai inserito:</div>
 					<div>
-						<p th:text="'Nome: ' + ${opera.nome}" />
+						<b>Nome: </b><p class="dati" th:text="${opera.nome}" />
 					</div>
 					<div>
-						<p th:text="'Descrizione: ' + ${opera.descrizione}" />
+						<b>Descrizione: </b><p class="dati" th:text="${opera.descrizione}" />
 					</div>
 					<div>
-						<p th:text="'Anno: ' + ${opera.anno}" />
+						<b>Anno: </b><p class="dati" th:text="${opera.anno}" />
 					</div>
 					<div>
-						<p th:text="'Lunghezza: ' + ${opera.lunghezza}" />
+						<b>Lunghezza: </b><p class="dati" th:text="${opera.lunghezza}" />
 					</div>
 					<div>
-						<p th:text="'Altezza: ' + ${opera.altezza}" />
+						<b>Altezza: </b><p class="dati" th:text="${opera.altezza}" />
 					</div>
 					<div>
-						<p th:text="'URL: ' + ${opera.imgURL}" />
+						<b>URL: </b><p class="dati" th:text="${opera.imgURL}" />
 					</div>
 					<div>
-						<p th:text="'Autore: ' + ${opera.autore.nome}" />
+						<b>Autore:</b><p class="dati" th:text="${opera.autore.nome}+' '+${opera.autore.cognome}" />
 					</div>
-					<div>
-						<p th:text="'Stanza: ' + ${opera?.stanza?.nome}" />
-					</div>
+					<div th:if="${opera.stanza != null}">
+						<b>Stanza: </b><p class="dati" th:text="${opera?.stanza?.nome}" />
+					</div><br></br>
 					<form th:action="@{/admin/opere}" method="get">
 						<input type="submit" class="btn btn-primary"
-							value="Torna alla pagine degli autori"></input>
+							value="Torna alla pagina delle opere"></input>
+					</form><br></br>
+					<form th:action="@{/admin/opera/inserisci}" method="get">
+						<input type="submit" class="btn btn-primary"
+							value="Inserisci Ancora"></input>
 					</form>
+					</div>
 				</div>
 			</div>
 		</div>

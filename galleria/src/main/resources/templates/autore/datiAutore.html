@@ -41,7 +41,7 @@
 						<li class="active"><a th:href="@{/admin/autori}"><i
 								class="fa fa-user" aria-hidden="true"></i><span
 								class="hidden-xs hidden-sm">Autori</span></a></li>
-						<li><a href="#"><i class="fa fa-plus-circle"
+						<li><a th:href="@{/admin/admins}"><i class="fa fa-plus-circle"
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Aggiungi
 									Admin</span></a></li>
 						<li><div class="bottom"></div></li>
@@ -71,27 +71,32 @@
 					</header>
 				</div>
 				<div class="row col-md-10 col-md-offset-2 user-dashboard">
-					Operazione eseguita con successo, hai inserito:
+				<div class="mostraDati">
+					<div class="dati">Operazione eseguita con successo, hai inserito:</div>
 					<div>
-						<p th:text="'Nome: ' + ${autore.nome}" />
+						<b>Nome: </b><p class="dati" th:text="${autore.nome}" />
 					</div>
 					<div>
-						<p th:text="'Cognome: ' + ${autore.cognome}" />
+						<b>Cognome: </b><p class="dati" th:text="${autore.cognome}" />
 					</div>
 					<div>
-						<p th:text="'Nazionalita: ' + ${autore.nazionalita}" />
+						<b>Nazionalita':</b><p class="dati" th:text="${autore.nazionalita}" />
 					</div>
 					<div>
-						<p th:text="'Anno di nascita: ' + ${dataNascita}" />
+						<b>Data di Nascita: </b><p class="dati" th:text="${dataNascita}" />
 					</div>
-					<div>
-						<p th:if="${autore.dataMorte}"
-							th:text="#{label.dataMorte} +' '+ ${dataMorte}"></p>
-					</div>
+					<div th:if="${dataMorte} != null">
+						<b>Data di Morte: </b><p class="dati" th:text="${dataMorte}"></p>
+					</div><br></br>
 					<form th:action="@{/admin/autori}" method="get">
 						<input type="submit" class="btn btn-primary"
 							value="Torna alla pagine degli autori"></input>
+					</form><br></br>
+					<form th:action="@{/admin/autore/inserisci}" method="get">
+						<input type="submit" class="btn btn-primary"
+							value="Inserisci Ancora"></input>
 					</form>
+					</div>
 				</div>
 			</div>
 		</div>

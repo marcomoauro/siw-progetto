@@ -90,6 +90,10 @@ public class OperaController  {
 	public String modificaOpera(@RequestParam("id") Long id, Model model){
 		Opera opera = this.operaService.findOne(id);
 		model.addAttribute(opera);
+		List<Autore> autori = (List<Autore>) autoreService.findAll();
+    	List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
+    	model.addAttribute("autori",autori);
+    	model.addAttribute("stanze",stanze);
 		return "opera/operaForm";
 	}
 }
