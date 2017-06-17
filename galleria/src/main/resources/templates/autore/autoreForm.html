@@ -1,4 +1,4 @@
-                        <!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
@@ -13,8 +13,9 @@
 	rel="stylesheet" media="screen" type="text/css" />
 <link href="../static/css/admin.css" th:href="@{/css/admin.css}"
 	rel="stylesheet" media="screen" type="text/css" />
-<link href="../static/css/stile-custom.css" th:href="@{/css/stile-custom.css}"
-	rel="stylesheet" media="screen" type="text/css"/>
+<link href="../static/css/stile-custom.css"
+	th:href="@{/css/stile-custom.css}" rel="stylesheet" media="screen"
+	type="text/css" />
 
 </head>
 
@@ -68,9 +69,10 @@
 						</div>
 					</header>
 				</div>
-					<div class="row col-md-10 col-md-offset-2 user-dashboard">
-					<form th:action="@{/admin/autore/inserisci(id=${autore.id})}" th:object="${autore}"
-						method="post" class="form-horizontal" role="form">
+				<div class="row col-md-10 col-md-offset-2 user-dashboard">
+					<form th:action="@{/admin/autore/inserisci(id=${autore.id})}"
+						th:object="${autore}" method="post" class="form-horizontal"
+						role="form">
 						<fieldset>
 							<legend>Autore</legend>
 							<div class="form-group">
@@ -131,10 +133,10 @@
 							</div>
 						</fieldset>
 					</form>
-					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 
 
 	<!-- Modal -->
