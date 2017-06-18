@@ -132,11 +132,12 @@
 				<div class="col-lg-12 text-center">
 					<hr class="star-primary" />
 					<h1>Ricerca Opera</h1>
-					<form th:action="@{/opera/cerca}" method="post">
+					<form th:action="@{ricercaOpera}" method="post">
 						<div id="custom-search-input">
 							<div class="input-group col-md-12">
 								<input type="text" class="  search-query form-control"
-									placeholder="Cerca Opera" name="nomeOpera"/> <span class="input-group-btn">
+									placeholder="Cerca Opera" name="nomeOpera" /> <span
+									class="input-group-btn">
 									<button class="btn btn-danger" type="button">
 										<span class=" glyphicon glyphicon-search"></span>
 									</button>
@@ -144,6 +145,21 @@
 							</div>
 						</div>
 					</form>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<hr class="star-primary" />
+					<div class="dropdown">
+						<button class="btn btn-primary dropdown-toggle" type="button"
+							data-toggle="dropdown">
+							<h1>Vedi Tutte</h1> <span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+							<li><a th:href="@{/listaOpere(comp='nome')}">Per nome</a></li>
+							<li><a th:href="@{/listaOpere(comp='anno')}">Per anno</a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -5,15 +5,12 @@
 <head>
 </head>
 <body>
-	<div th:if="${not #lists.isEmpty(risultati)}">
+	<div>
 	<ol>
-	<th:forEach th:each="opera: ${risultati}">
-	<li><span th:text="${opera.nome}"></span></li>
+	<th:forEach th:each="opera: ${opere}">
+	<li><span th:text="|${opera.nome} ${opera.anno}|"></span></li>
 	</th:forEach>
 	</ol>
-	</div>
-	<div th:if="${#lists.isEmpty(risultati)}">
-	<p>Nessun risultato trovato</p>
 	</div>
 </body>
 </html>

@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-public class Opera {
+public class Opera implements Comparable<Opera>{
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -126,5 +126,11 @@ public class Opera {
 
 	public void setImgURL(String imgURL) {
 		this.imgURL = imgURL;
+	}
+
+	@Override
+	public int compareTo(Opera that) {
+		return this.getNome().toUpperCase().compareTo(that.getNome().toUpperCase());
+
 	}
 }

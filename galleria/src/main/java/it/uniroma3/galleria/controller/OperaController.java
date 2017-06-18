@@ -1,6 +1,7 @@
 package it.uniroma3.galleria.controller;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import it.uniroma3.galleria.comparator.ComparatorePerAnno;
 import it.uniroma3.galleria.model.Autore;
 import it.uniroma3.galleria.model.Opera;
 import it.uniroma3.galleria.model.Stanza;
@@ -97,7 +99,7 @@ public class OperaController  {
 		return "opera/operaForm";
 	}
     
-    @PostMapping("/opera/cerca")
+    @PostMapping("/ricercaOpera")
     public String cercaOpera(Model model, @RequestParam("nomeOpera") String nome){
     	List<Opera> opere = (List<Opera>) operaService.findAll();
     	List<Opera> risultati = new ArrayList<>();
@@ -107,6 +109,21 @@ public class OperaController  {
     	}
     	model.addAttribute("risultati", risultati);
     	return "opera/risultatoRicerca";
+    }
+    
+    @GetMapping("/listaOpere")
+    public String listaOpere(Model model, @RequestParam("comp") String comp){
+    	List<Opera> opere = (List<Opera>) operaService.findAll();
+    	if(comp.equals("nome")){
+    		Collections.sort(opere);
+    	}else if(comp.equals("anno")){
+    		ComparatorePerAnno comparatore = new ComparatorePerAnno();
+    		Collections.sort(opere,comparatore);
+    	}else{
+    		return "error";
+    	}
+    	model.addAttribute("opere",opere);
+    	return "opera/listaOpere";
     }
 }
 
