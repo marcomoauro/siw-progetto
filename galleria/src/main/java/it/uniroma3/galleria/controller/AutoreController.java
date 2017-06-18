@@ -84,6 +84,13 @@ public class AutoreController {
 		model.addAttribute(autore);
 		return "autore/autoreForm";
 	}
+	
+	@GetMapping("/lista/autori")
+	public String showAutori(Model model){
+		List<Autore> autori = (List<Autore>) autoreService.findAll();
+		model.addAttribute("autori",autori);
+		return "autore/listaAutori";
+	}
 
 
 }

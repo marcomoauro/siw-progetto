@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+</head>
+<body>
+	<div>
+	<ol>
+	<th:forEach th:each="autore: ${autori}">
+	<li><span th:text="|${autore.nome} ${autore.cognome}|"></span></li>
+	</th:forEach>
+	</ol>
+	</div>
+</body>
+</html>

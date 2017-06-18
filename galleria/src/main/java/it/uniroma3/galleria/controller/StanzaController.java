@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import it.uniroma3.galleria.model.Autore;
 import it.uniroma3.galleria.model.Opera;
 import it.uniroma3.galleria.model.Stanza;
 import it.uniroma3.galleria.service.StanzaService;
@@ -63,6 +64,13 @@ public class StanzaController {
 	Stanza stanza = this.stanzaService.findOne(id);
 		model.addAttribute(stanza);
 		return "stanza/stanzaForm";
+	}
+	
+	@GetMapping("/lista/stanze")
+	public String showStanza(Model model){
+		List<Stanza> stanze = (List<Stanza>) stanzaService.findAll();
+		model.addAttribute("stanze",stanze);
+		return "stanza/listaStanze";
 	}
 
 }

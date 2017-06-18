@@ -1,16 +1,237 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<!-- per aggiungere thymeleaf: xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" -->
 <head>
+
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+
+<title>Galleria d'Arte</title>
+
+<!-- Bootstrap Core CSSz -->
+<link href="../static/vendor/bootstrap/css/bootstrap.min.css"
+	th:href="@{/vendor/bootstrap/css/bootstrap.min.css}" rel="stylesheet" />
+<!-- Custom Fonts -->
+<link href="../static/vendor/font-awesome/css/font-awesome.min.css"
+	th:href="@{/vendor/font-awesome/css/font-awesome.min.css}"
+	rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
+	rel="stylesheet" type="text/css" />
+<link
+	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
+	rel="stylesheet" type="text/css" />
+<!-- Theme CSS -->
+<link href="../static/css/freelancer.min.css"
+	th:href="@{/css/freelancer.min.css}" rel="stylesheet" />
+
+<link href="../static/css/stile-custom.css"
+	th:href="@{/css/stile-custom.css}" rel="stylesheet" />
+
+<!-- Temporary navbar container fix -->
+<style>
+.navbar-toggler {
+	z-index: 1;
+}
+
+@media ( max-width : 576px) {
+	nav>.container {
+		width: 100%;
+	}
+}
+</style>
+<script th:src="@{../vendor/jquery/jquery.min.js}"></script>
+<script th:src="@{../vendor/bootstrap/js/bootstrap.min.js}"></script>
 </head>
-<body>
-	<div>
-	<ol>
-	<th:forEach th:each="opera: ${opere}">
-	<li><span th:text="|${opera.nome} ${opera.anno}|"></span></li>
-	</th:forEach>
-	</ol>
+
+<body id="page-top" class="index">
+	<div id="skipnav">
+		<a href="#maincontent">Skip to main content</a>
 	</div>
+
+	<!-- Navigation -->
+	<nav id="mainNav"
+		class="navbar navbar-default navbar-fixed-top navbar-custom">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header page-scroll">
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target="#bs-example-navbar-collapse-1">
+					<span class="sr-only">Toggle navigation</span> Menu <i
+						class="fa fa-bars"></i>
+				</button>
+				<a class="navbar-brand" href="#page-top">Galleria d'arte</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav navbar-right">
+					<li class="hidden"><a href="#page-top"></a></li>
+					<li class="page-scroll"><a href="/">Torna Alla Home</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+
+	<!-- Portfolio Grid Section -->
+	<section id="portfolio">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-12 text-center">
+					<br />
+					<h2>Opere</h2>
+					<hr class="star-primary" />
+				</div>
+			</div>
+			<div class="row">
+				<th:forEach th:each="opera: ${opere}">
+					<div class="col-md-4 portfolio2-item">
+						<a th:href="${opera.imgURL}"><img class="img-responsive" th:src="${opera.imgURL}" th:alt="${opera.nome}" /></a>
+						<h3>
+							<span th:text="${opera.nome}"></span>
+						</h3>
+						<p style="font-size: 8pt;">
+							<span th:text="${opera.descrizione}"></span><br /> <b>Anno: </b>
+							<span th:text="${opera.anno}+';'"></span><br />
+							<br /> <b>Dimensione: </b><span
+								th:text="|${opera.altezza}cm x ${opera.lunghezza}cm;|"></span><br />
+							<br /> <b>Autore: </b><a
+								th:href="@{/dettagli/autore(id=${opera.autore.id})}"><span
+								th:text="|${opera.autore.nome} ${opera.autore.cognome}|"></span></a>
+						</p>
+						<div style="font-size: 8pt;" th:if="${opera.stanza} != null">
+							<b>Stanza: </b><a
+								th:href="@{/dettagli/stanza(id=${opera.stanza.id})}"><span
+								th:text="${opera.stanza.nome}"></span></a>
+						</div>
+					</div>
+				</th:forEach>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="text-center">
+		<div class="footer-above">
+			<div class="container">
+				<div class="row">
+					<div class="footer-col col-md-4">
+						<h3>Dove Siamo</h3>
+						<p>
+							Città,Provincia <br />Via .... 123
+						</p>
+					</div>
+					<div class="footer-col col-md-4">
+						<h3>Seguici sui Social</h3>
+						<ul class="list-inline">
+							<li><a href="#" class="btn-social btn-outline"><span
+									class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
+							</li>
+							<li><a href="#" class="btn-social btn-outline"><span
+									class="sr-only">Google Plus</span><i
+									class="fa fa-fw fa-google-plus"></i></a></li>
+							<li><a href="#" class="btn-social btn-outline"><span
+									class="sr-only">Twitter</span><i class="fa fa-fw fa-twitter"></i></a>
+							</li>
+							<li><a href="#" class="btn-social btn-outline"><span
+									class="sr-only">Linked In</span><i class="fa fa-fw fa-linkedin"></i></a>
+							</li>
+						</ul>
+					</div>
+					<div class="footer-col col-md-4">
+						<h3>Crediti</h3>
+						<p>
+							Tema: <a href="https://startbootstrap.com/">StartBoostrap</a><br />
+							Creatori: <a href="#">Federico Roma</a>, <a href="#">Marco
+								Moauro</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="footer-below">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-12">Copyright &copy; Your Website 2016</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
+	<div
+		class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
+		<a class="btn btn-primary" href="#page-top"> <i
+			class="fa fa-chevron-up"></i>
+		</a>
+	</div>
+
+	<!-- Portfolio Modals -->
+
+	<th:forEach th:each="opera: ${recenti}">
+
+		<div class="portfolio-modal modal fade" th:id="'opera'+${opera.id}"
+			tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-content">
+				<div class="close-modal" data-dismiss="modal">
+					<div class="lr">
+						<div class="rl"></div>
+					</div>
+				</div>
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-8 col-lg-offset-2">
+							<div class="modal-body">
+								<h2>
+									<span th:text="${opera.nome}"></span>
+								</h2>
+								<hr class="star-primary" />
+
+								<img th:src="${opera.imgURL}" class="img-responsive"
+									th:alt="${opera.nome}" /> <span th:text="${opera.descrizione}"></span><br />
+								<button type="button" class="btn btn-default"
+									data-dismiss="modal">
+									<i class="fa fa-times"></i> Chiudi
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</th:forEach>
+	<script type="text/javascript" th:inline="javascript">
+		$(document).ready(function() {
+			//Handles menu drop down
+			$('.dropdown-menu').find('form').click(function(e) {
+				e.stopPropagation();
+			});
+		});
+	</script>
+	<!-- Bootstrap core JavaScript -->
+	<script th:src="@{../vendor/tether/tether.min.js}"></script>
+
+	<!-- Plugin JavaScript -->
+	<script th:src="@{../vendor/jquery-easing/jquery.easing.min.js}"></script>
+
+	<!-- Contact Form JavaScript -->
+	<script th:src="@{../js/jqBootstrapValidation.js}"></script>
+	<script th:src="@{../js/contact_me.js}"></script>
+
+	<!-- Custom scripts for this template -->
+	<script th:src="@{../js/freelancer.min.js}"></script>
+
+
 </body>
+
 </html>

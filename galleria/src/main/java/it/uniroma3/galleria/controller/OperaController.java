@@ -111,7 +111,7 @@ public class OperaController  {
     	return "opera/risultatoRicerca";
     }
     
-    @GetMapping("/listaOpere")
+    @GetMapping("/lista/opere")
     public String listaOpere(Model model, @RequestParam("comp") String comp){
     	List<Opera> opere = (List<Opera>) operaService.findAll();
     	if(comp.equals("nome")){
@@ -119,8 +119,8 @@ public class OperaController  {
     	}else if(comp.equals("anno")){
     		ComparatorePerAnno comparatore = new ComparatorePerAnno();
     		Collections.sort(opere,comparatore);
-    	}else{
-    		return "error";
+    	}else if(comp.equals("null")){
+        	model.addAttribute("opere",opere);
     	}
     	model.addAttribute("opere",opere);
     	return "opera/listaOpere";
