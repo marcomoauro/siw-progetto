@@ -752,7 +752,7 @@ button, html [type="button"], [type="reset"], [type="submit"] {
 	body, html {
 		overflow: hidden;
 		height:100%;
-		margn: 0;
+		margin: 0;
 		padding: 0;
 	}
 	#bottom {

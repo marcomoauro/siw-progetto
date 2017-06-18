@@ -38,5 +38,9 @@ public class OperaService {
 		return this.operaRepository.findByStanza(stanza);
 	}
 
+	public List<Opera> findByAutore(Long id) {
+		return this.operaRepository.findByAutoreId(id);
+	}
+
 
 }

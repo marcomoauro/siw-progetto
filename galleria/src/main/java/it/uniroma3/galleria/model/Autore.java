@@ -18,7 +18,7 @@ import javax.validation.constraints.Past;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-public class Autore {
+public class Autore implements Comparable<Autore>{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
@@ -105,6 +105,11 @@ public class Autore {
 
 	public void setOpere(List<Opera> opere) {
 		this.opere = opere;
+	}
+
+	@Override
+	public int compareTo(Autore that) {
+		return this.getNome().toUpperCase().compareTo(that.getNome().toUpperCase());
 	}
 	
 	

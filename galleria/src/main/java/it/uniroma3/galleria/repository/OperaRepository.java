@@ -14,5 +14,7 @@ public interface OperaRepository extends CrudRepository<Opera, Long> {
     List<Opera> findByAnno(Integer anno);
     
     List<Opera> findByStanza(Stanza stanza);
+
+	List<Opera> findByAutoreId(Long id);
     
 }

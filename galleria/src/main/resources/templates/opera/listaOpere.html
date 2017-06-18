@@ -105,9 +105,6 @@
 							<span th:text="${opera.anno}+';'"></span><br />
 							<br /> <b>Dimensione: </b><span
 								th:text="|${opera.altezza}cm x ${opera.lunghezza}cm;|"></span><br />
-							<br /> <b>Autore: </b><a
-								th:href="@{/dettagli/autore(id=${opera.autore.id})}"><span
-								th:text="|${opera.autore.nome} ${opera.autore.cognome}|"></span></a>
 						</p>
 						<div style="font-size: 8pt;" th:if="${opera.stanza} != null">
 							<b>Stanza: </b><a
@@ -120,54 +117,6 @@
 		</div>
 	</section>
 
-	<!-- Footer -->
-	<footer class="text-center">
-		<div class="footer-above">
-			<div class="container">
-				<div class="row">
-					<div class="footer-col col-md-4">
-						<h3>Dove Siamo</h3>
-						<p>
-							Città,Provincia <br />Via .... 123
-						</p>
-					</div>
-					<div class="footer-col col-md-4">
-						<h3>Seguici sui Social</h3>
-						<ul class="list-inline">
-							<li><a href="#" class="btn-social btn-outline"><span
-									class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
-							</li>
-							<li><a href="#" class="btn-social btn-outline"><span
-									class="sr-only">Google Plus</span><i
-									class="fa fa-fw fa-google-plus"></i></a></li>
-							<li><a href="#" class="btn-social btn-outline"><span
-									class="sr-only">Twitter</span><i class="fa fa-fw fa-twitter"></i></a>
-							</li>
-							<li><a href="#" class="btn-social btn-outline"><span
-									class="sr-only">Linked In</span><i class="fa fa-fw fa-linkedin"></i></a>
-							</li>
-						</ul>
-					</div>
-					<div class="footer-col col-md-4">
-						<h3>Crediti</h3>
-						<p>
-							Tema: <a href="https://startbootstrap.com/">StartBoostrap</a><br />
-							Creatori: <a href="#">Federico Roma</a>, <a href="#">Marco
-								Moauro</a>
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="footer-below">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12">Copyright &copy; Your Website 2016</div>
-				</div>
-			</div>
-		</div>
-	</footer>
-
 	<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
 	<div
 		class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
@@ -175,41 +124,6 @@
 			class="fa fa-chevron-up"></i>
 		</a>
 	</div>
-
-	<!-- Portfolio Modals -->
-
-	<th:forEach th:each="opera: ${recenti}">
-
-		<div class="portfolio-modal modal fade" th:id="'opera'+${opera.id}"
-			tabindex="-1" role="dialog" aria-hidden="true">
-			<div class="modal-content">
-				<div class="close-modal" data-dismiss="modal">
-					<div class="lr">
-						<div class="rl"></div>
-					</div>
-				</div>
-				<div class="container">
-					<div class="row">
-						<div class="col-lg-8 col-lg-offset-2">
-							<div class="modal-body">
-								<h2>
-									<span th:text="${opera.nome}"></span>
-								</h2>
-								<hr class="star-primary" />
-
-								<img th:src="${opera.imgURL}" class="img-responsive"
-									th:alt="${opera.nome}" /> <span th:text="${opera.descrizione}"></span><br />
-								<button type="button" class="btn btn-default"
-									data-dismiss="modal">
-									<i class="fa fa-times"></i> Chiudi
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</th:forEach>
 	<script type="text/javascript" th:inline="javascript">
 		$(document).ready(function() {
 			//Handles menu drop down

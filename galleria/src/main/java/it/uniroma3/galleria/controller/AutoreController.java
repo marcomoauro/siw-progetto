@@ -1,6 +1,7 @@
 package it.uniroma3.galleria.controller;
 
 import java.text.SimpleDateFormat;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -20,13 +21,17 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.uniroma3.galleria.model.Autore;
+import it.uniroma3.galleria.model.Opera;
 import it.uniroma3.galleria.service.AutoreService;
+import it.uniroma3.galleria.service.OperaService;
 
 @Controller
 public class AutoreController {
 	
 	@Autowired
 	private AutoreService autoreService;
+	@Autowired
+	private OperaService operaService;
 	
 	@InitBinder
 	public void dataBinding(WebDataBinder binder) {
@@ -88,8 +93,18 @@ public class AutoreController {
 	@GetMapping("/lista/autori")
 	public String showAutori(Model model){
 		List<Autore> autori = (List<Autore>) autoreService.findAll();
+		Collections.sort(autori);
 		model.addAttribute("autori",autori);
 		return "autore/listaAutori";
+	}
+	
+	@GetMapping("/dettagli/autore")
+	public String dettagliAutore(@RequestParam("id") Long id, Model model){
+		Autore autore = autoreService.findOne(id);
+		model.addAttribute(autore);
+		List<Opera> opere = operaService.findByAutore(id);
+		model.addAttribute("opere",opere);
+		return "autore/dettagliAutore";
 	}
 
 

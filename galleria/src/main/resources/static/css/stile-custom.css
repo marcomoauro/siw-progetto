@@ -1,7 +1,7 @@
 .titolo {
 	font-family: Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 18pt;
-	color: light-grey;
+	color: light-gray;
 	margin-top: 5px;
 }
 
@@ -141,9 +141,8 @@
 	background-color: #f5f5f5;
 	margin: 0px 10px 10px 0;
 	border: 2px solid #18BC9C;
-    border-radius: 5px;
-    overflow-y:auto;
-    
+	border-radius: 5px;
+	overflow-y: auto;
 }
 
 .portfolio2-item img {
@@ -171,3 +170,15 @@
 	background: #18BC9C;
 	border: 2px solid #18BC9C;
 }
+
+.autori .list-group {
+	-webkit-column-count: 3;
+	-webkit-column-gap: 20px;
+	-moz-column-count: 3;
+	-moz-column-gap: 20px;
+	-o-column-count: 3;
+	-o-column-gap: 20px;
+	column-count: 3;
+	column-gap: 20px;
+}
+

@@ -46,6 +46,7 @@
 		width: 100%;
 	}
 }
+
 </style>
 <script th:src="@{../vendor/jquery/jquery.min.js}"></script>
 <script th:src="@{../vendor/bootstrap/js/bootstrap.min.js}"></script>
@@ -89,22 +90,39 @@
 			<div class="row">
 				<div class="col-lg-12 text-center">
 					<br />
-					<h2>Autori</h2>
-					<hr class="star-primary" />
+					<h2><span th:text="|${autore.nome} ${autore.cognome}|"></span></h2>
+					<hr class="star-primary" /><br/>
+					<b>Nazionalità: </b><span th:text="${autore.nazionalita}+' ;'"></span>
+					<b>Data Di Nascita: </b><span th:text="${autore.dataNascita}+' ;'"></span>		
+					<b th:if="${autore.dataMorte} != null">Data Di Morte: </b><span th:text="${autore.dataMorte}"></span>		
 				</div>
 			</div>
-			<div class="row autori">
-				<div class="list-group">
-				<th:forEach th:each="autore: ${autori}">
-					<a class="list-group-item" th:href="@{/dettagli/autore(id=${autore.id})}"><span th:text="|${autore.nome} ${autore.cognome}|"></span></a>
+			<div class="row" style="margin-top:10px;">
+				<th:forEach th:each="opera: ${opere}">
+					<div class="col-md-4 portfolio2-item">
+						<a th:href="${opera.imgURL}"><img class="img-responsive" th:src="${opera.imgURL}" th:alt="${opera.nome}" /></a>
+						<h3>
+							<span th:text="${opera.nome}"></span>
+						</h3>
+						<p style="font-size: 8pt;">
+							<span th:text="${opera.descrizione}"></span><br /> <b>Anno: </b>
+							<span th:text="${opera.anno}+';'"></span><br />
+							<br /> <b>Dimensione: </b><span
+								th:text="|${opera.altezza}cm x ${opera.lunghezza}cm;|"></span><br />
+							<br /> <b>Autore: </b><a
+								th:href="@{/dettagli/autore(id=${opera.autore.id})}"><span
+								th:text="|${opera.autore.nome} ${opera.autore.cognome}|"></span></a>
+						</p>
+						<div style="font-size: 8pt;" th:if="${opera.stanza} != null">
+							<b>Stanza: </b><a
+								th:href="@{/dettagli/stanza(id=${opera.stanza.id})}"><span
+								th:text="${opera.stanza.nome}"></span></a>
+						</div>
+					</div>
 				</th:forEach>
-				</div>
-
 			</div>
 		</div>
 	</section>
-
-
 
 	<!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
 	<div
