@@ -3,9 +3,7 @@ package it.uniroma3.galleria.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import it.uniroma3.galleria.model.Admin;
-import it.uniroma3.galleria.repository.OperaRepository;
 import it.uniroma3.galleria.repository.AdminRepository;
 
 @Service
@@ -31,4 +29,11 @@ public class AdminService {
     	return (Admin) this.adminRepository.findByUsername(username);
     }
 
+    public void delete(Long id) {
+		this.adminRepository.delete(id);
+	}
+
+    public Admin findOne(Long id) {
+		return this.adminRepository.findOne(id);
+	}
 }

@@ -9,4 +9,6 @@ import it.uniroma3.galleria.model.Admin;
 public interface AdminRepository extends CrudRepository<Admin, Long> {
 
     List<Admin> findByUsername(String username);
+    
+    void delete(Long id);
 }

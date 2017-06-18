@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+
 import it.uniroma3.galleria.model.Ruolo;
 import it.uniroma3.galleria.model.Admin;
 import it.uniroma3.galleria.service.RuoloService;
@@ -56,5 +58,18 @@ public class AdminController {
 			}
 		}
 		return "admins/datiAdmin";
+	}
+	
+	@GetMapping("/admin/admin/elimina")
+	public ModelAndView deleteAdmin(@RequestParam("id") Long id){
+		adminService.delete(id);
+		return new ModelAndView("redirect:/admin/admins");
+	}
+
+    @GetMapping("/admin/admin/modifica")
+	public String modificaAdmin(@RequestParam("id") Long id, Model model){
+		Admin admin = this.adminService.findOne(id);
+		model.addAttribute(admin);
+		return "admins/adminForm";
 	}
 }
