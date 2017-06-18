@@ -106,6 +106,4 @@ public class AutoreController {
 		model.addAttribute("opere",opere);
 		return "autore/dettagliAutore";
 	}
-
-
 }

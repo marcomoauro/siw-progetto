@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import it.uniroma3.galleria.model.Autore;
 import it.uniroma3.galleria.model.Opera;
 import it.uniroma3.galleria.model.Stanza;
+import it.uniroma3.galleria.service.OperaService;
 import it.uniroma3.galleria.service.StanzaService;
 
 @Controller
@@ -24,6 +25,8 @@ public class StanzaController {
 	
 	@Autowired
 	private StanzaService stanzaService;
+	@Autowired
+	private OperaService operaService;
 	
 	@GetMapping("/admin/stanze")
 	public String gestisciStanze(Model model){
@@ -72,5 +75,13 @@ public class StanzaController {
 		model.addAttribute("stanze",stanze);
 		return "stanza/listaStanze";
 	}
-
+	
+	@GetMapping("/dettagli/stanza")
+	public String dettagliStanza(@RequestParam("id") Long id, Model model){
+		Stanza stanza = stanzaService.findOne(id);
+		model.addAttribute(stanza);
+		List<Opera> opere = operaService.findByStanza(id);
+		model.addAttribute("opere",opere);
+		return "stanza/dettagliStanza";
+	}
 }
