@@ -41,7 +41,7 @@
 						<li><a th:href="@{/admin/autori}"><i
 								class="fa fa-user" aria-hidden="true"></i><span
 								class="hidden-xs hidden-sm">Autori</span></a></li>
-						<li class="active"><a th:href="@{/admin/admin}"><i class="fa fa-plus-circle"
+						<li class="active"><a th:href="@{/admin/admins}"><i class="fa fa-plus-circle"
 								aria-hidden="true"></i><span class="hidden-xs hidden-sm">Aggiungi
 									Admin</span></a></li>
 						<li><div class="bottom"></div></li>
@@ -71,26 +71,33 @@
 					</header>
 				</div>
 				<div class="row col-md-10 col-md-offset-2 user-dashboard">
-					Operazione eseguita con successo, hai inserito:
+				<div class="mostraDati">
+					<div class="dati">Operazione eseguita con successo, hai inserito:</div>
 					<div>
-						<p th:text="'Username: ' + ${admin.username}" />
+						<b>Username: </b><p class="dati" th:text="${admin.username}" />
 					</div>
 					<div>
-						<p th:text="'Password: ' + ${admin.password}" />
+						<b>Password: </b><p class="dati" th:text="${admin.password}" />
 					</div>
 					<div>
-						<p th:text="'Nome: ' + ${admin.nome}" />
+						<b>Nome: </b><p class="dati" th:text="${admin.nome}" />
 					</div>
 					<div>
-						<p th:text="'Cognome: ' + ${admin.cognome}" />
+						<b>Cognome:</b><p class="dati" th:text="${admin.cognome}" />
 					</div>
 					<div>
-						<p th:text="'E-mail: ' + ${admin.email}" />
+						<b>Email: </b><p class="dati" th:text="${admin.email}" />
 					</div>
-					<form th:action="@{/admin/admin}" method="get">
+					<br></br>
+					<form th:action="@{/admin/admins}" method="get">
 						<input type="submit" class="btn btn-primary"
-							value="Torna alla pagine degli admin"></input>
+							value="Torna alla pagina degli admin"></input>
+					</form><br></br>
+					<form th:action="@{/admin/admin/inserisci}" method="get">
+						<input type="submit" class="btn btn-primary"
+							value="Inserisci Ancora"></input>
 					</form>
+					</div>
 				</div>
 			</div>
 		</div>

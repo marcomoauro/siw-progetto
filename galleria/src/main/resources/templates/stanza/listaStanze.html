@@ -96,7 +96,7 @@
 			<div class="row autori">
 				<div class="list-group">
 				<th:forEach th:each="stanza: ${stanze}">
-					<a class="list-group-item" th:href="@{/dettagli/stanza(id=${stanza.id})}"><span th:text="|${stanza.nome} ${stanza.descrizione}|"></span></a>
+					<a class="list-group-item" th:href="@{/dettagli/stanza(id=${stanza.id})}"><span th:text="|${stanza.nome}|"></span></a>
 				</th:forEach>
 				</div>
 

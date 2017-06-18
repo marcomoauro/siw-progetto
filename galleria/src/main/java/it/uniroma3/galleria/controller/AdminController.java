@@ -57,23 +57,4 @@ public class AdminController {
 		}
 		return "admins/datiAdmin";
 	}
-
-	//	@PostMapping("admin/registraAdmin")
-	//	public String signUp(@Valid @ModelAttribute Admin admin, 
-	//			BindingResult bindingResult, Model model){
-	//		if (bindingResult.hasErrors()) {
-	//			return "signUp";
-	//		}else {
-	//			model.addAttribute(admin);
-	//			try{
-	//				Ruolo ruolo = new Ruolo(admin.getUsername());
-	//				adminService.add(admin); 
-	//				ruoloService.add(ruolo);
-	//			}catch(Exception e){
-	//				return "signUp";
-	//			}
-	//		}
-	//		return "datiAdmin";
-	//	}
-
 }
