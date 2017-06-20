@@ -8,14 +8,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import it.uniroma3.galleria.model.Opera;
-import it.uniroma3.galleria.service.AdminService;
 import it.uniroma3.galleria.service.OperaService;
 
 @Controller
 public class WebController {
 
-	@Autowired
-	private AdminService adminService;
 	@Autowired
 	private OperaService operaService;
 
@@ -31,7 +28,7 @@ public class WebController {
 			c++;
 		}
 		model.addAttribute("recenti", recenti);
-		return "home";
+		return "index";
 
 	}
 
@@ -44,13 +41,6 @@ public class WebController {
 	public String login(){
 		return "login";
 	}
-
-//	@PostMapping("/login")
-//	public String loginPost(@RequestParam("username") String username, Model model){
-//		Admin admin = adminService.findByUsername(username);
-//		model.addAttribute(admin);
-//		return "admin";
-//	}
 
 
 	@RequestMapping(value="/403")
